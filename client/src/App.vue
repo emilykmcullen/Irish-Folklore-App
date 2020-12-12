@@ -1,25 +1,35 @@
 <template>
 <div id="app">
   <h2>Irish Folklore</h2>
+  <!-- components for drop down, selecting, showing characters  -->
   <character-list :characters="characters"></character-list>
   <character-detail :character="selectedCharacter"></character-detail>
   <button v-if="selectedCharacter && !favouriteCharacters.includes(selectedCharacter)" v-on:click="addToFavourites">Add to faves</button>
   <favourites-list :favourites="favouriteCharacters"></favourites-list>
+
+  <!-- components for playing the anagram game -->
   <button v-if="!playAnagram" v-on:click="playAnagramGame">Play Anagram Game</button>
   <button v-if="playAnagram" v-on:click="playAnagramGame">Play again</button>
   <button v-if="playAnagram" v-on:click="endAnagramGame">End game</button>
   <anagram-game v-if="playAnagram" :currentAnagram="currentAnagram" :currentAnswer="currentAnswer"></anagram-game>
   <anagram-results :isCorrect="isCorrect" :currentAnswer="currentAnswer" :userAnswer="userAnswer"></anagram-results>
   <show-answer v-if="answerToShow" :answerToShow="answerToShow"></show-answer>
+
+  <!-- components for playing top trumps -->
   <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame">Play Top Trumps Game</button>
+  <!-- below component shows when the user is the current player -->
   <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" :playerOneDeck="playerOneDeck" :playerTwoDeck="playerTwoDeck" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userSelectedStat="userSelectedStat"></top-trumps-game>
+  <!-- below component shows when the computer is the current player -->
   <top-trumps-game-computer-plays v-if="playTopTrumps && currentPlayer==='two'"  :playerOneDeck="playerOneDeck" :playerTwoDeck="playerTwoDeck" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :computerSelectedStat="computerSelectedStat"></top-trumps-game-computer-plays>
+  <!-- below component shows the results when the user is the current player, after they have chosen their stat to play -->
   <top-trumps-results v-if="playerOneStat && playerTwoStat && currentPlayer ==='one'" :playerOneStat="playerOneStat" :playerTwoStat="playerTwoStat" :currentStat="currentStat" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userIsWinner="userIsWinner" :isDraw="isDraw" :isGameOver="isGameOver" ></top-trumps-results>
-  <top-trumps-against-computer-results v-if="currentPlayer==='two'" :currentPlayer="currentPlayer" :computerSelectedStat="computerSelectedStat" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userIsWinner="userIsWinner" :isDraw="isDraw" :isGameOver="isGameOver"></top-trumps-against-computer-results>
+  <!-- below component shows the results when the computer is the current player, a stat is auto selected by the computer and the results come up immediately -->
+  <top-trumps-against-computer-results v-if="currentPlayer==='two'" :currentPlayer="currentPlayer" :computerSelectedStat="computerSelectedStat" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userIsWinner="userIsWinner" :isDraw="isDraw" :isGameOver="isGameOver"></top-trumps-against-computer-results> 
   <game-over v-if="isGameOver===true" :winner="winner"></game-over>
   <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame">End Game</button>
+
+  <!-- map components -->
   <ireland-map></ireland-map>
-  <!-- <map-of-ireland></map-of-ireland> -->
 
 </div>
   
@@ -31,7 +41,6 @@ import TopTrumpsAgainstComputerResults from './components/TopTrumpsAgainstComput
 import TopTrumpsGameComputerPlays from './components/TopTrumpsGameComputerPlays.vue'
 import TopTrumpsResults from './components/TopTrumpsResults.vue'
 import TopTrumpsGame from './components/TopTrumpsGame.vue'
-import MapOfIreland from './components/MapOfIreland.vue'
 import IrelandMap from './components/IrelandMap.vue'
 import CharacterList from './components/CharacterList.vue'
 import CharacterDetail from './components/CharacterDetail.vue'
@@ -97,7 +106,6 @@ export default {
     'anagram-results': AnagramResults,
     'show-answer': ShowAnswer,
     'ireland-map': IrelandMap,
-    'map-of-ireland': MapOfIreland,
     'top-trumps-game': TopTrumpsGame,
     'top-trumps-results': TopTrumpsResults,
     'top-trumps-game-computer-plays': TopTrumpsGameComputerPlays,
@@ -144,7 +152,11 @@ export default {
       const index = this.characters.findIndex(x => x.region_key === key)
       this.selectedCharacter = this.characters[index]
     }),
-    //this is an event bus from when the user selects a stat, evaluates win/lose/draw and removes/adds cards to decks
+
+    //this is an event bus from when the USER (not computer as this is not possible)
+    // selects a stat, it evaluates win/lose/draw and removes/adds cards to decks
+    //it assigns a this.playerOneStat and this.playerTwoStat which then means the results
+    // component will display, where the user sees results and then clicks 'play next round'
     eventBus.$on('player-stat', (playerOneStat, statName) => {
       this.playerOneStat = playerOneStat
       this.playerTwoStat = this.playerTwoCurrentCard.top_trumps_properties[statName]
@@ -184,8 +196,15 @@ export default {
       }
     }),
 
-    //there is probably a better way to do this maybe need to change the isDraw function assignment above
+    //this is an event bus from when the user selects 'play next round' 
+    // (after any set of results eg. computer wins, user wins, draw etc)
     eventBus.$on('play-next-card', (userIsWinner, isDraw) => { 
+      //this first if statement determines if there was a winner
+      //if the userisWinner, the cards have already been taken and added to the decks so this is not necessary to do
+      //so the appropriate data is just reset
+      //if the computer is the winner, the else if statement uses testwhoiswinner() to set the player
+      //and computer stats and test them against each other then take/add cards to decks appropriately
+      //then depending on the current player it sets the data so that the appropriate components will show
         if (isDraw !== true){
             if (userIsWinner === true){
               this.currentPlayer = 'one',
@@ -202,7 +221,11 @@ export default {
               this.getRandomTopTrumpsProperty(this.playerTwoCurrentCard.top_trumps_properties)
               this.testWhoIsWinner(this.playerOneCurrentCard.top_trumps_properties[this.computerSelectedStat], this.playerTwoCurrentCard.top_trumps_properties[this.computerSelectedStat])
             }
-        }   
+        } 
+        //this else statement is for if the match was a draw
+        //then depending on the current player it sets the data so that the appropriate components will show
+        // if user is current the data just needs to be reset and new current cards got
+        // if computer is current then the testwhoiswinner needs to be called to play the next round immediately  
         else {
           if (this.currentPlayer==='one'){
             this.userSelectedStat = false,
@@ -228,6 +251,7 @@ export default {
     }
     )
 
+    // resets all data and starts again
     eventBus.$on('play-again', () => {
       this.playerOneDeck = [],
       this.playerTwoDeck = [],
@@ -270,14 +294,21 @@ export default {
     playAnagramGame() {
       this.currentAnagram=''
       this.currentAnswer=''
+      // anagram game component will show
       this.playAnagram = true
       this.randomNumber = this.getRandomInt(this.characters)
       this.randomCharacter = this.characters[this.randomNumber]
       if (this.randomCharacter.name) {
+        // this tests if the random character name has any spaces in it
         if (/\s/.test(this.randomCharacter.name)) {
+          //the name is then split into an array of separate words depending on the spaces
           let words = this.splitStringIntoWords(this.randomCharacter.name)
+          //for every word in 'words' array the letters are shuffled using shuffleword()
+          //and saved as array shuffledNameMultiple
           let shuffledNameMultiple = words.map(word => this.shuffleWord(word))
+          //the items in the array are then joined together with spaces between them 
           this.currentAnagram = shuffledNameMultiple.join(' ')
+          //sets the current answer as the random characters name
           this.currentAnswer = this.randomCharacter.name
           }
         else {
@@ -304,10 +335,15 @@ export default {
       let number = Math.floor(Math.random() * Math.floor(array.length))
       return number
     },
+    //string with spaces is split into an array of separate words depending on the spaces 
     splitStringIntoWords(string) {
       let arrayOfWords = string.toLowerCase().split(" ")
       return arrayOfWords
     },
+
+    //a string is split into an array of its letters
+    //the order of these letters is then swapped around using the for loop
+    //they are then joined back together into one string
     shuffleWord(word){
       let newWordArray = word.split('')
       let length = newWordArray.length
@@ -329,6 +365,9 @@ export default {
       this.answerToShow = '',
       this.userAnswer = ''
     },
+
+    //TOP TRUMPS FUNCTIONS
+
     shuffleArray(array){
       let length = array.length
       for ( let i=0; i<length-1; i++){
@@ -339,7 +378,7 @@ export default {
       }
       return array
     },
-    //be careful of pop will this change the array forever?
+
     splitDeck(array){
       if (array.length%2 !== 0){
         let item = array.pop()
@@ -355,19 +394,13 @@ export default {
         
       }
     },
-    gameOver(deck_one, deck_two){
-      if (deck_one.length === 0 || deck_two.length ===0){
-        this.isGameOver = true
-      }
-      else{
-        this.isGameOver = false
-      }
-    },
+
     getCurrentCards(){
         this.playerOneCurrentCard = this.playerOneDeck[0]
         this.playerTwoCurrentCard = this.playerTwoDeck[0]
 
     },
+
     playTopTrumpsGame(){
       this.shuffleArray(this.charactersToShuffle)
       this.splitDeck(this.charactersToShuffle)
@@ -375,12 +408,16 @@ export default {
       this.getCurrentCards()
     
     },
+
+
+    //this is used for the computer selection when the computer is current player
     getRandomTopTrumpsProperty(propertiesObject){
       let arrayOfProperties = Object.keys(propertiesObject)
       let length = arrayOfProperties.length
       let randomNumber = Math.floor(Math.random() * Math.floor(length))
       this.computerSelectedStat = arrayOfProperties[randomNumber]
-    },    
+    }, 
+
     testWhoIsWinner(playerOneStat, playerTwoStat){
       this.playerOneStat = playerOneStat
       this.playerTwoStat = playerTwoStat
@@ -417,6 +454,7 @@ export default {
       }
 
     },
+
     endTopTrumpsGame(){
       this.playerOneDeck = [],
       this.playerTwoDeck = [],
