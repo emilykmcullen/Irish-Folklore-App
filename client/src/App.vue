@@ -11,7 +11,7 @@
   <button v-if="playAnagram" v-on:click="playAnagramGame">Play again</button>
   <button v-if="playAnagram" v-on:click="endAnagramGame">End game</button>
   <anagram-game v-if="playAnagram" :currentAnagram="currentAnagram" :currentAnswer="currentAnswer"></anagram-game>
-  <anagram-results :isCorrect="isCorrect" :currentAnswer="currentAnswer" :userAnswer="userAnswer"></anagram-results>
+  <anagram-results v-if="isCorrect !== null" :isCorrect="isCorrect" :currentAnswer="currentAnswer" :userAnswer="userAnswer"></anagram-results>
   <show-answer v-if="answerToShow" :answerToShow="answerToShow"></show-answer>
 
   <!-- components for playing top trumps -->
@@ -301,6 +301,8 @@ export default {
       this.favouriteCharacters = this.getFavourites
     },
     playAnagramGame() {
+      this.isCorrect = null
+      this.answerToShow = ''
       this.currentAnagram=''
       this.currentAnswer=''
       // anagram game component will show

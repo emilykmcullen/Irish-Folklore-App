@@ -7,22 +7,16 @@
       <div v-if="isCorrect ===false"> 
           <p>You said: {{userAnswer}}</p>
           <p>Incorrect!</p>
-          <button v-on:click="showAnswer(currentAnswer)">Show Answer</button>
+          
       </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from '../main.js'
 
 export default {
     name: 'anagram-results',
-    props: ['isCorrect', 'currentAnswer', 'userAnswer'],
-    methods: {
-        showAnswer(answer){
-            eventBus.$emit('answer-show', answer)
-        }
-    }
+    props: ['isCorrect', 'currentAnswer', 'userAnswer']
 
 }
 </script>

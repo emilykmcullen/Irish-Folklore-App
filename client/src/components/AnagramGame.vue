@@ -7,6 +7,7 @@
           <input type="text" id="answer" v-model="answer">
           <input type="submit" value="enter" id="answer">
       </form>
+      <button v-on:click="showAnswer(currentAnswer)">Show Answer</button>
       
 
   </div>
@@ -27,6 +28,9 @@ export default {
         answerAnagram(){
             eventBus.$emit('anagram-answered', this.answer)
             this.answer = ''
+        },
+        showAnswer(answer){
+            eventBus.$emit('answer-show', answer)
         }
     }
     
