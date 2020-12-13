@@ -9,14 +9,20 @@
           <p>Incorrect!</p>
           
       </div>
+
+      
   </div>
 </template>
 
 <script>
+import ShowAnswer from './ShowAnswer'
 
 export default {
     name: 'anagram-results',
-    props: ['isCorrect', 'currentAnswer', 'userAnswer']
+    props: ['isCorrect', 'currentAnswer', 'userAnswer', 'answerToShow'],
+    components: {
+      'show-answer': ShowAnswer
+    }
 
 }
 </script>

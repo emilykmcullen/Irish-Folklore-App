@@ -7,12 +7,14 @@
 
 
   <!-- components for playing the anagram game -->
-  <button v-if="!playAnagram" v-on:click="playAnagramGame">Play Anagram Game</button>
-  <button v-if="playAnagram" v-on:click="playAnagramGame">Play again</button>
-  <button v-if="playAnagram" v-on:click="endAnagramGame">End game</button>
-  <anagram-game v-if="playAnagram" :currentAnagram="currentAnagram" :currentAnswer="currentAnswer"></anagram-game>
-  <anagram-results v-if="isCorrect !== null" :isCorrect="isCorrect" :currentAnswer="currentAnswer" :userAnswer="userAnswer"></anagram-results>
-  <show-answer v-if="answerToShow" :answerToShow="answerToShow"></show-answer>
+  <anagram-game-start 
+  :playAnagram="playAnagram" 
+  :currentAnagram="currentAnagram"
+  :currentAnswer="currentAnswer"
+  :isCorrect="isCorrect"
+  :userAnswer="userAnswer"
+  :answerToShow="answerToShow"/>
+
 
   <!-- components for playing top trumps -->
   <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame">Play Top Trumps Game</button>
@@ -35,6 +37,8 @@
 </template>
 
 <script>
+import AnagramGameStart from './components/Anagram/AnagramGameStart'
+
 import GameOver from './components/GameOver.vue'
 import TopTrumpsAgainstComputerResults from './components/TopTrumpsAgainstComputerResults.vue'
 import TopTrumpsGameComputerPlays from './components/TopTrumpsGameComputerPlays.vue'
@@ -44,10 +48,8 @@ import IrelandMap from './components/IrelandMap.vue'
 import CharacterList from './components/CharacterList.vue'
 import CharacterDetail from './components/CharacterDetail.vue'
 import CharacterService from './services/CharacterService.js'
-import AnagramGame from './components/AnagramGame.vue'
-import AnagramResults from './components/AnagramResults.vue'
-import ShowAnswer from './components/ShowAnswer.vue'
 import { eventBus } from './main.js'
+
 
 // have just done the eventbus on for player stat and now need to compare results and show in top-trumps-results
 
@@ -98,17 +100,16 @@ export default {
 
   },
   components: {
+    'anagram-game-start': AnagramGameStart,
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
-    'anagram-game': AnagramGame,
-    'anagram-results': AnagramResults,
-    'show-answer': ShowAnswer,
     'ireland-map': IrelandMap,
     'top-trumps-game': TopTrumpsGame,
     'top-trumps-results': TopTrumpsResults,
     'top-trumps-game-computer-plays': TopTrumpsGameComputerPlays,
     'top-trumps-against-computer-results': TopTrumpsAgainstComputerResults,
     'game-over': GameOver
+    
     
   },
   mounted() {
@@ -124,7 +125,6 @@ export default {
     })
 
     eventBus.$on('update-description-page', (direction) => {
-      console.log("cooooool");
       if (direction === 'next') {
         this.currentDescriptionPage++;
       }
@@ -133,12 +133,12 @@ export default {
       }
       })
 
-    eventBus.$on('favourite-to-remove', (favouriteId) => {
-      const index = this.favouriteCharacters.findIndex( x => x._id === favouriteId)
-      this.favouriteCharacters[index].is_favourite = false
-      let character = this.favouriteCharacters[index]
-      CharacterService.updateCharacter(character)
-      this.favouriteCharacters = this.getFavourites
+    eventBus.$on('play-anagram', () => {
+      this.playAnagramGame()
+    })
+
+    eventBus.$on('end-anagram-game', () => {
+      this.endAnagramGame()
     })
 
     eventBus.$on('anagram-answered', (answer) => {
