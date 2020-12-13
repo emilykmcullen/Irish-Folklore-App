@@ -1,22 +1,30 @@
 <template>
-  <div vif v-if="character" id="character-detail">
+  <div v-if="character" id="character-detail">
       <div v-if="character.name">
           <h2>{{character.name}}</h2>
           <img class="image" :src="character.image">
       </div>
-      <div v-if="!character.name">
-          <h2>{{character.species}}</h2>
-          <img class="image" :src="character.image">
+      <div id="character-description">
+          <h3>{{character.description[currentDescriptionPage]}}</h3>
+      </div>
+      <div>
+          <description-page-navigation :currentDescriptionPage="currentDescriptionPage" :character="character"></description-page-navigation>
       </div>
 
 
   </div>
 </template>
 
+
 <script>
+import DescriptionPageNavigation from './DescriptionPageNavigation.vue'
+
 export default {
     name: 'character-detail',
-    props: ['character']
+    props: ['character', 'currentDescriptionPage'],
+    components: {
+        'description-page-navigation': DescriptionPageNavigation
+    }
 
 
 }

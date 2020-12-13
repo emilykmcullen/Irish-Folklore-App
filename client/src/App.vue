@@ -3,9 +3,8 @@
   <h2>Irish Folklore</h2>
   <!-- components for drop down, selecting, showing characters  -->
   <character-list :characters="characters"></character-list>
-  <character-detail :character="selectedCharacter"></character-detail>
-  <button v-if="selectedCharacter && !favouriteCharacters.includes(selectedCharacter)" v-on:click="addToFavourites">Add to faves</button>
-  <favourites-list :favourites="favouriteCharacters"></favourites-list>
+  <character-detail :character="selectedCharacter" :currentDescriptionPage="currentDescriptionPage"></character-detail>
+
 
   <!-- components for playing the anagram game -->
   <button v-if="!playAnagram" v-on:click="playAnagramGame">Play Anagram Game</button>
@@ -44,7 +43,6 @@ import TopTrumpsGame from './components/TopTrumpsGame.vue'
 import IrelandMap from './components/IrelandMap.vue'
 import CharacterList from './components/CharacterList.vue'
 import CharacterDetail from './components/CharacterDetail.vue'
-import FavouritesList from './components/FavouritesList.vue'
 import CharacterService from './services/CharacterService.js'
 import AnagramGame from './components/AnagramGame.vue'
 import AnagramResults from './components/AnagramResults.vue'
@@ -61,6 +59,7 @@ export default {
       charactersToShuffle: [],
       selectedCharacter: null,
       favouriteCharacters: [],
+      currentDescriptionPage: 0,
       //data for anagram game
       playAnagram: false,
       randomNumber: 0,
@@ -101,7 +100,6 @@ export default {
   components: {
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
-    'favourites-list': FavouritesList,
     'anagram-game': AnagramGame,
     'anagram-results': AnagramResults,
     'show-answer': ShowAnswer,
@@ -121,8 +119,19 @@ export default {
     this.fetchFavourites();
 
     eventBus.$on('character-selected', (character) => {
+      this.currentDescriptionPage = 0
       this.selectedCharacter = character;
     })
+
+    eventBus.$on('update-description-page', (direction) => {
+      console.log("cooooool");
+      if (direction === 'next') {
+        this.currentDescriptionPage++;
+      }
+      else {
+        this.currentDescriptionPage--;
+      }
+      })
 
     eventBus.$on('favourite-to-remove', (favouriteId) => {
       const index = this.favouriteCharacters.findIndex( x => x._id === favouriteId)
