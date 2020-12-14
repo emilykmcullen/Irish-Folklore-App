@@ -48,9 +48,9 @@
 <script>
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
 import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
-import IrelandMap from './components/IrelandMap.vue'
-import CharacterList from './components/CharacterList.vue'
-import CharacterDetail from './components/CharacterDetail.vue'
+import IrelandMap from './components/IrelandMap'
+import CharacterList from './components/Characters/CharacterList'
+import CharacterDetail from './components/Characters/CharacterDetail'
 import CharacterService from './services/CharacterService.js'
 import { eventBus } from './main.js'
 
