@@ -1,4 +1,12 @@
 <template>
+<modal class="modal" name="character-detail-modal"
+        :min-height="200"
+        :scrollable="true"
+        :reset="true"
+        width="40%"
+        height="auto">
+
+        
   <div v-if="character" id="character-detail">
       <div v-if="character.name">
           <h2>{{character.name}}</h2>
@@ -13,6 +21,7 @@
 
 
   </div>
+</modal>
 </template>
 
 

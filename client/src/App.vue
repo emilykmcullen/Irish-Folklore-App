@@ -112,6 +112,7 @@ export default {
     eventBus.$on('character-selected', (character) => {
       this.currentDescriptionPage = 0
       this.selectedCharacter = character;
+      this.$modal.show('character-detail-modal')
     })
 
     eventBus.$on('update-description-page', (direction) => {
@@ -152,10 +153,13 @@ export default {
     eventBus.$on('map-selected-character', (key) => {
       const index = this.characters.findIndex(x => x.region_key === key)
       this.selectedCharacter = this.characters[index]
+      this.currentDescriptionPage = 0
+      this.$modal.show('character-detail-modal')
     })
 
     eventBus.$on('play-top-trumps-game', () => {
       this.playTopTrumpsGame()
+      this.$modal.show('top-trumps-modal')
     })
 
     eventBus.$on('end-top-trumps-game', () => {

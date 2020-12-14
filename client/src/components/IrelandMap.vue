@@ -1,6 +1,6 @@
 <template>
   <div>
-    <highcharts :constructorType="'mapChart'" class="hc" :options="chartOptions" ref="chart"></highcharts>
+    <highcharts id="ireland-map" :constructorType="'mapChart'" class="hc" :options="chartOptions" ref="chart"></highcharts>
   </div>
 </template>
 
@@ -30,7 +30,9 @@ export default {
             }
             },
             colorAxis: {
-            min: 0
+            min: 0,
+            minColor: '#228B22',
+            maxColor: '#000022',
             },
             plotOptions:{
         	series:{
@@ -44,7 +46,7 @@ export default {
             }
         },
             series: [{
-            name: 'Random data',
+            name: 'Character',
             states: {
                 hover: {
                 color: '#BADA55'
@@ -98,3 +100,14 @@ export default {
     }
     };
     </script>
+
+<style>
+
+#ireland-map {
+    height: 1000px; 
+    min-width: 800px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+</style>

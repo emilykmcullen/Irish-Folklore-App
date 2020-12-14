@@ -1,22 +1,29 @@
 <template>
   <div>
-      <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
-      <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame()">End Game</button>
+    <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
 
-      <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
-      :currentPlayer="currentPlayer"
-      :playerOneDeck="playerOneDeck" 
-      :playerTwoDeck="playerTwoDeck" 
-      :playerOneCurrentCard="playerOneCurrentCard" 
-      :playerTwoCurrentCard="playerTwoCurrentCard" 
-      :userSelectedStat="userSelectedStat"
-      :playerOneStat="playerOneStat"
-      :playerTwoStat="playerTwoStat"
-      :currentStat="currentStat"
-      :userIsWinner="userIsWinner"
-      :isDraw="isDraw"
-      :isGameOver="isGameOver"
-      :winner="winner"/>
+    <modal name="top-trumps-modal" class="modal"
+        :min-height="200"
+        :scrollable="true"
+        :reset="true"
+        width="40%"
+        height="auto">
+    
+
+    <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
+    :currentPlayer="currentPlayer"
+    :playerOneDeck="playerOneDeck" 
+    :playerTwoDeck="playerTwoDeck" 
+    :playerOneCurrentCard="playerOneCurrentCard" 
+    :playerTwoCurrentCard="playerTwoCurrentCard" 
+    :userSelectedStat="userSelectedStat"
+    :playerOneStat="playerOneStat"
+    :playerTwoStat="playerTwoStat"
+    :currentStat="currentStat"
+    :userIsWinner="userIsWinner"
+    :isDraw="isDraw"
+    :isGameOver="isGameOver"
+    :winner="winner"/>
 
     <top-trumps-game-computer-plays v-if="playTopTrumps && currentPlayer==='two'" 
     :currentPlayer="currentPlayer" 
@@ -31,7 +38,8 @@
     :winner="winner"
     />
 
-
+    <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame()">End Game</button>
+    </modal>
   </div>
 </template>
 

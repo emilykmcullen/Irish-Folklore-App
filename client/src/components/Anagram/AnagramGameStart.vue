@@ -4,7 +4,12 @@
   <button v-if="!playAnagram" v-on:click="playAnagramGame()">Play Anagram Game</button>
   
 
-<modal name="anagram-modal">
+<modal class="modal" name="anagram-modal"
+        :min-height="200"
+        :scrollable="true"
+        :reset="true"
+        width="40%"
+        height="auto">
     
     <anagram-game v-if="playAnagram" 
     :currentAnagram="currentAnagram"
