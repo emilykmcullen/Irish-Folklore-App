@@ -15,14 +15,10 @@
 </template>
 
 <script>
-import ShowAnswer from './ShowAnswer'
 
 export default {
     name: 'anagram-results',
-    props: ['isCorrect', 'currentAnswer', 'userAnswer', 'answerToShow'],
-    components: {
-      'show-answer': ShowAnswer
-    }
+    props: ['isCorrect', 'userAnswer']
 
 }
 </script>

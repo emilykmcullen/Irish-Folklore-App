@@ -10,17 +10,24 @@
     </div>
     <button :disabled="isDisabled" v-on:click="playNextCard(userIsWinner, isDraw)">Play next round</button>
 
+    <game-over v-if="isGameOver===true"
+     :winner="winner"/>
+
 </div>
   
 </template>
 
 <script>
-import { eventBus } from '../main.js'
+import { eventBus } from '../../main.js'
+import GameOver from './GameOver'
 
 export default {
     name: 'top-trumps-results',
-    props: ['playerOneStat', 'playerTwoStat', 'currentStat', 'playerOneCurrentCard', 'playerTwoCurrentCard', 
-            'userIsWinner', 'isDraw', 'isGameOver'],
+    props: ['playerOneStat', 'playerTwoStat', 'currentStat',
+            'userIsWinner', 'isDraw', 'winner', 'isGameOver'],
+    components: {
+        'game-over': GameOver
+    },
     methods: {
         playNextCard(userIsWinner, isDraw){
             eventBus.$emit('play-next-card', this.userIsWinner, this.isDraw)

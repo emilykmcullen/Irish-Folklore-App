@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <h2>Irish Folklore</h2>
+
   <!-- components for drop down, selecting, showing characters  -->
   <character-list :characters="characters"></character-list>
   <character-detail :character="selectedCharacter" :currentDescriptionPage="currentDescriptionPage"></character-detail>
@@ -17,17 +18,25 @@
 
 
   <!-- components for playing top trumps -->
-  <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame">Play Top Trumps Game</button>
-  <!-- below component shows when the user is the current player -->
-  <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" :playerOneDeck="playerOneDeck" :playerTwoDeck="playerTwoDeck" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userSelectedStat="userSelectedStat"></top-trumps-game>
-  <!-- below component shows when the computer is the current player -->
-  <top-trumps-game-computer-plays v-if="playTopTrumps && currentPlayer==='two'"  :playerOneDeck="playerOneDeck" :playerTwoDeck="playerTwoDeck" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :computerSelectedStat="computerSelectedStat"></top-trumps-game-computer-plays>
-  <!-- below component shows the results when the user is the current player, after they have chosen their stat to play -->
-  <top-trumps-results v-if="playerOneStat && playerTwoStat && currentPlayer ==='one'" :playerOneStat="playerOneStat" :playerTwoStat="playerTwoStat" :currentStat="currentStat" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userIsWinner="userIsWinner" :isDraw="isDraw" :isGameOver="isGameOver" ></top-trumps-results>
-  <!-- below component shows the results when the computer is the current player, a stat is auto selected by the computer and the results come up immediately -->
-  <top-trumps-against-computer-results v-if="currentPlayer==='two'" :currentPlayer="currentPlayer" :computerSelectedStat="computerSelectedStat" :playerOneCurrentCard="playerOneCurrentCard" :playerTwoCurrentCard="playerTwoCurrentCard" :userIsWinner="userIsWinner" :isDraw="isDraw" :isGameOver="isGameOver"></top-trumps-against-computer-results> 
-  <game-over v-if="isGameOver===true" :winner="winner"></game-over>
-  <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame">End Game</button>
+  <top-trumps-game-start
+  :playTopTrumps="playTopTrumps"
+  :currentPlayer="currentPlayer"
+  :playerOneDeck="playerOneDeck"
+  :playerTwoDeck="playerTwoDeck"
+  :playerOneCurrentCard="playerOneCurrentCard"
+  :playerTwoCurrentCard="playerTwoCurrentCard"
+  :userSelectedStat="userSelectedStat"
+  :computerSelectedStat="computerSelectedStat"
+  :playerOneStat="playerOneStat"
+  :playerTwoStat="playerTwoStat"
+  :currentStat="currentStat"
+  :userIsWinner="userIsWinner"
+  :isDraw="isDraw"
+  :isGameOver="isGameOver"
+  :winner="winner"
+
+  />
+
 
   <!-- map components -->
   <ireland-map></ireland-map>
@@ -38,20 +47,13 @@
 
 <script>
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
-
-import GameOver from './components/GameOver.vue'
-import TopTrumpsAgainstComputerResults from './components/TopTrumpsAgainstComputerResults.vue'
-import TopTrumpsGameComputerPlays from './components/TopTrumpsGameComputerPlays.vue'
-import TopTrumpsResults from './components/TopTrumpsResults.vue'
-import TopTrumpsGame from './components/TopTrumpsGame.vue'
+import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
 import IrelandMap from './components/IrelandMap.vue'
 import CharacterList from './components/CharacterList.vue'
 import CharacterDetail from './components/CharacterDetail.vue'
 import CharacterService from './services/CharacterService.js'
 import { eventBus } from './main.js'
 
-
-// have just done the eventbus on for player stat and now need to compare results and show in top-trumps-results
 
 export default {
   name: 'app',
@@ -60,7 +62,6 @@ export default {
       characters: [],
       charactersToShuffle: [],
       selectedCharacter: null,
-      favouriteCharacters: [],
       currentDescriptionPage: 0,
       //data for anagram game
       playAnagram: false,
@@ -91,33 +92,22 @@ export default {
 
     };
   },
-  computed: {
-    getFavourites: function() {
-      return this.characters.filter(character => character.is_favourite)
-    },
-
-    
-
-  },
+  
   components: {
     'anagram-game-start': AnagramGameStart,
+    'top-trumps-game-start': TopTrumpsGameStart,
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
     'ireland-map': IrelandMap,
-    'top-trumps-game': TopTrumpsGame,
-    'top-trumps-results': TopTrumpsResults,
-    'top-trumps-game-computer-plays': TopTrumpsGameComputerPlays,
-    'top-trumps-against-computer-results': TopTrumpsAgainstComputerResults,
-    'game-over': GameOver
+    
     
     
   },
   mounted() {
+
     this.fetchCharacters();
 
     this.fetchCharactersToShuffle();
-
-    this.fetchFavourites();
 
     eventBus.$on('character-selected', (character) => {
       this.currentDescriptionPage = 0
@@ -160,7 +150,15 @@ export default {
     eventBus.$on('map-selected-character', (key) => {
       const index = this.characters.findIndex(x => x.region_key === key)
       this.selectedCharacter = this.characters[index]
-    }),
+    })
+
+    eventBus.$on('play-top-trumps-game', () => {
+      this.playTopTrumpsGame()
+    })
+
+    eventBus.$on('end-top-trumps-game', () => {
+      this.endTopTrumpsGame()
+    })
 
     //this is an event bus from when the USER (not computer as this is not possible)
     // selects a stat, it evaluates win/lose/draw and removes/adds cards to decks
@@ -286,20 +284,12 @@ export default {
     fetchCharacters() {
       CharacterService.getCharacters()
       .then(characters => this.characters = characters)
-      .then(this.fetchFavourites)
     },
     fetchCharactersToShuffle() {
       CharacterService.getCharacters()
       .then(characters => this.charactersToShuffle = characters)
     },
-    fetchFavourites(){
-      this.favouriteCharacters = this.characters.filter(character => character.is_favourite)
-    },
-    addToFavourites() {
-      this.selectedCharacter.is_favourite = true
-      CharacterService.updateCharacter(this.selectedCharacter)
-      this.favouriteCharacters = this.getFavourites
-    },
+
     playAnagramGame() {
       this.isCorrect = null
       this.answerToShow = ''

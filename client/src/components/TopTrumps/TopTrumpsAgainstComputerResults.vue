@@ -7,17 +7,26 @@
         <p v-if="userIsWinner !==true && !isDraw">You lose! Your opponent takes your card.</p>
         <p v-if="isDraw">It's a draw! You both put your cards to the bottom of your deck.</p>
     <button :disabled="isDisabled" v-on:click="playNextCard(userIsWinner, isDraw)">Play next round</button>
+
+
+    <game-over v-if="isGameOver===true" :winner="winner"></game-over>
     </div>
-    <!-- sort out vifs above -->
+    
+    
   
 </template>
 
 <script>
-import {eventBus} from '../main.js'
+import {eventBus} from '../../main.js'
+import GameOver from './GameOver'
 
 export default {
     name: 'top-trumps-against-computer-results',
-    props: ['computerSelectedStat', 'playerOneCurrentCard', 'playerTwoCurrentCard', 'userIsWinner', 'isDraw', 'isGameOver'],
+    props: ['computerSelectedStat', 'playerOneCurrentCard', 'playerTwoCurrentCard',
+             'userIsWinner', 'isDraw', 'isGameOver', 'winner'],
+    components: {
+        'game-over': GameOver
+    },
     methods: {
         playNextCard(userIsWinner, isDraw){
             eventBus.$emit('play-next-card', this.userIsWinner, this.isDraw)

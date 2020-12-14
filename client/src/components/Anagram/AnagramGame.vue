@@ -12,9 +12,7 @@
 
       <anagram-results v-if="isCorrect !== null" 
       :isCorrect="isCorrect" 
-      :currentAnswer="currentAnswer" 
       :userAnswer="userAnswer"
-      :answerToShow="answerToShow"
       ></anagram-results>
 
       <show-answer v-if="answerToShow" :answerToShow="answerToShow"/>
