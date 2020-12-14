@@ -4,7 +4,7 @@
   <button v-on:click="playAnagramGame()">Play Anagram Game</button>
   
 
-<modal class="modal" name="anagram-modal"
+<b-modal class="modal" id="anagram-modal"
         :min-height="200"
         :scrollable="true"
         :reset="true"
@@ -21,7 +21,7 @@
 
     <button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</button>
     <button v-if="playAnagram" v-on:click="endAnagramGame()">End game</button>
-</modal>
+</b-modal>
 </div>
 
 

@@ -1,5 +1,5 @@
 <template>
-<modal class="modal" name="character-detail-modal"
+<b-modal class="modal" id="character-detail-modal"
         :min-height="200"
         :scrollable="true"
         :reset="true"
@@ -21,7 +21,7 @@
 
 
   </div>
-</modal>
+</b-modal>
 </template>
 
 

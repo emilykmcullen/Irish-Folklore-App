@@ -2,14 +2,14 @@
   <div>
     <button v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
 
-    <modal name="top-trumps-modal" class="modal"
+    <b-modal id="top-trumps-modal" class="modal"
         :min-height="200"
         :scrollable="true"
         :reset="true"
         width="40%"
         height="auto">
     
-
+    
     <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
     :currentPlayer="currentPlayer"
     :playerOneDeck="playerOneDeck" 
@@ -37,9 +37,10 @@
     :isGameOver="isGameOver"
     :winner="winner"
     />
-
+    
     <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame()">End Game</button>
-    </modal>
+    
+    </b-modal>
   </div>
 </template>
 

@@ -31,10 +31,13 @@ export default {
                 alignTo: 'spacingBox'
             }
             },
+            legend: {
+                enabled: false
+            },
             colorAxis: {
             min: 0,
-            minColor: '#228B22',
-            maxColor: '#000022',
+            minColor: '#8ad498',
+            maxColor: '#1f8032',
             },
             plotOptions:{
         	series:{
@@ -106,7 +109,7 @@ export default {
 <style>
 
 #ireland-map {
-    height: 1000px; 
+    height: 800px; 
     min-width: 800px; 
     max-width: 800px; 
     margin: 0 auto; 

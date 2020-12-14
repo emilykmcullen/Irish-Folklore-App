@@ -1,5 +1,9 @@
 <template>
-  <div class="top-trumps-game">
+
+    <div class="top-trumps-game">
+        <b-container>
+        <b-row>
+        <b-col>
         <div class="player-one">
             <p><img class="image" :src="playerOneCurrentCard.image"></p>
             <p>{{playerOneCurrentCard.name}}</p>
@@ -11,9 +15,11 @@
             </ul>
             <player-one-cards 
             :playerOneDeck="playerOneDeck" />
-
+    
 
         </div>
+        </b-col>
+        <b-col>
         <div id="player-two"> 
             <player-two-stats 
             :playerTwoCurrentCard="playerTwoCurrentCard" 
@@ -24,6 +30,9 @@
 
 
         </div>
+        </b-col>
+          </b-row>
+        </b-container>
 
         <div>
             <top-trumps-results v-if="playerOneStat && playerTwoStat && currentPlayer ==='one'" 
@@ -37,9 +46,8 @@
             :isGameOver="isGameOver"
             />
         </div>
+    </div>
 
-
-  </div>
 </template>
 
 <script>

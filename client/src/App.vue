@@ -112,7 +112,7 @@ export default {
     eventBus.$on('character-selected', (character) => {
       this.currentDescriptionPage = 0
       this.selectedCharacter = character;
-      this.$modal.show('character-detail-modal')
+      this.$bvModal.show('character-detail-modal')
     })
 
     eventBus.$on('update-description-page', (direction) => {
@@ -126,12 +126,12 @@ export default {
 
     eventBus.$on('play-anagram', () => {
       this.playAnagramGame()
-      this.$modal.show('anagram-modal')
+      this.$bvModal.show('anagram-modal')
     })
 
     eventBus.$on('end-anagram-game', () => {
       this.endAnagramGame()
-      this.$modal.hide('anagram-modal')
+      this.$bvModal.hide('anagram-modal')
     })
 
     eventBus.$on('anagram-answered', (answer) => {
@@ -154,12 +154,12 @@ export default {
       const index = this.characters.findIndex(x => x.region_key === key)
       this.selectedCharacter = this.characters[index]
       this.currentDescriptionPage = 0
-      this.$modal.show('character-detail-modal')
+      this.$bvModal.show('character-detail-modal')
     })
 
     eventBus.$on('play-top-trumps-game', () => {
       this.playTopTrumpsGame()
-      this.$modal.show('top-trumps-modal')
+      this.$bvModal.show('top-trumps-modal')
     })
 
     eventBus.$on('end-top-trumps-game', () => {
