@@ -2,18 +2,23 @@
 
 <div>
   <button v-if="!playAnagram" v-on:click="playAnagramGame()">Play Anagram Game</button>
-  <button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</button>
-  <button v-if="playAnagram" v-on:click="endAnagramGame()">End game</button>
+  
 
-
-  <anagram-game v-if="playAnagram" 
+<modal name="anagram-modal">
+    
+    <anagram-game v-if="playAnagram" 
     :currentAnagram="currentAnagram"
     :currentAnswer="currentAnswer" 
     :isCorrect="isCorrect" 
     :userAnswer="userAnswer"
     :answerToShow="answerToShow"
     />
+
+    <button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</button>
+    <button v-if="playAnagram" v-on:click="endAnagramGame()">End game</button>
+</modal>
 </div>
+
 
 
 </template>

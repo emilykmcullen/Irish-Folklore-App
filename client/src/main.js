@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import HighCharts from 'highcharts';
 import Maps from 'highcharts/modules/map';
-import HighchartsVue from 'highcharts-vue'
-// import "leaflet/dist/leaflet.css";
+import HighchartsVue from 'highcharts-vue';
+import VModal from 'vue-js-modal';
 
 Maps(HighCharts);
 Vue.use(HighchartsVue);
+
+Vue.use(VModal)
 
 Vue.config.productionTip = false
 

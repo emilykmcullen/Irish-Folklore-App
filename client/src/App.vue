@@ -125,10 +125,12 @@ export default {
 
     eventBus.$on('play-anagram', () => {
       this.playAnagramGame()
+      this.$modal.show('anagram-modal')
     })
 
     eventBus.$on('end-anagram-game', () => {
       this.endAnagramGame()
+      this.$modal.hide('anagram-modal')
     })
 
     eventBus.$on('anagram-answered', (answer) => {
