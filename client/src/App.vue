@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <h2>Irish Folklore</h2>
+  <h2>Mythical Creatures and Characters of Irish Folklore</h2>
 
   <!-- components for drop down, selecting, showing characters  -->
   <character-list :characters="characters"></character-list>
@@ -48,7 +48,7 @@
 <script>
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
 import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
-import IrelandMap from './components/IrelandMap'
+import IrelandMap from './components/IrelandMap/IrelandMap'
 import CharacterList from './components/Characters/CharacterList'
 import CharacterDetail from './components/Characters/CharacterDetail'
 import CharacterService from './services/CharacterService.js'

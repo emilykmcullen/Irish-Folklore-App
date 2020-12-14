@@ -445,7 +445,31 @@ db.characters.insertMany([
         magic: 6,
         strength: 1,
         spookiness: 7}
-    }
- 
-    
+    },
+    {
+        region_key: "2345262",
+        name: "Balor of the Evil Eye",
+        description: ["Son of a god and husband of a prophetess, Balor was a giant with a singular, poisonous eye on his forehead that unleashed a fiery devastation when opened. Lured from his stronghold on Tory Island, Donegal, Balor was blinded in battle and mistakenly burned his own army to the ground. A huge hole was seared into the earth and later, filled with water, becoming Sligo’s Loch na Súil: the Lake of the Eye."],
+        image: "https://1.bp.blogspot.com/_NMdhBDpOTaQ/Ssio0BQKnVI/AAAAAAAAAZg/99Jyn26fubs/s400/Balor+to+post.jpg",
+        top_trumps_properties:
+        {heroism: 1,
+        romance: 1,
+        magic: 5,
+        strength: 7,
+        spookiness: 6}
+        
+    },
+    {
+        region_key: "15",
+        name: "Conchobar Mac Nessa",
+        description: ["Born on Christmas Day, Conchobar was destined for infamy from the start. He married several daughters of the High King of Ulster, including Medb, one of Ireland’s most feared and ferocious figures. In his old age, he also married Deirdre of the Sorrows (which didn’t make her any happier). Often at war with kings of Ireland’s other provinces, Conchobar met a fitting and spectacular death: killed by the petrified brain of a rival, fired from a slingshot."],
+        image: "https://i961.photobucket.com/albums/ae98/sharmcdaniel/conchobar-1.jpg",
+        top_trumps_properties:
+        {heroism: 5,
+        romance: 5,
+        magic: 1,
+        strength: 7,
+        spookiness: 6}
+
+    } 
 ]) 

@@ -1,7 +1,7 @@
 <template> 
 
 <div>
-  <button v-if="!playAnagram" v-on:click="playAnagramGame()">Play Anagram Game</button>
+  <button v-on:click="playAnagramGame()">Play Anagram Game</button>
   
 
 <modal class="modal" name="anagram-modal"

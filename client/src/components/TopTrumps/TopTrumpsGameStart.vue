@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-if="!playTopTrumps" v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
+    <button v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
 
     <modal name="top-trumps-modal" class="modal"
         :min-height="200"

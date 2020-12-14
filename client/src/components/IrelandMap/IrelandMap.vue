@@ -5,8 +5,10 @@
 </template>
 
 <script>
-import { eventBus } from '../main.js'
-import ireland from '@highcharts/map-collection/countries/ie/ie-all.geo.json'
+import { eventBus } from '../../main.js'
+import ireland from './ie-all.geo.json'
+
+// '@highcharts/map-collection/countries/ie/ie-all.geo.json'
 
 export default {
     name: 'ireland-map',
@@ -18,7 +20,7 @@ export default {
             map: ireland
             },
             title: {
-            text: 'Mythical Creatures of Irish Folklore'
+            text: ''
             },
             subtitle: {
             // text: ' <a href="http://code.highcharts.com/mapdata/countries/ie/ie-all.js">Mythical Creatures of Irish Folklore</a>'
