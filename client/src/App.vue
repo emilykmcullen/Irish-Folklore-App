@@ -2,8 +2,9 @@
 <div id="app">
   <h2>Mythical Creatures and Characters of Irish Folklore</h2>
 
+  <nav-bar :characters="characters"></nav-bar>
+
   <!-- components for drop down, selecting, showing characters  -->
-  <character-list :characters="characters"></character-list>
   <character-detail :character="selectedCharacter" :currentDescriptionPage="currentDescriptionPage"></character-detail>
 
 
@@ -46,10 +47,10 @@
 </template>
 
 <script>
+import NavBar from './components/NavBar'
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
 import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
 import IrelandMap from './components/IrelandMap/IrelandMap'
-import CharacterList from './components/Characters/CharacterList'
 import CharacterDetail from './components/Characters/CharacterDetail'
 import CharacterService from './services/CharacterService.js'
 import { eventBus } from './main.js'
@@ -96,9 +97,9 @@ export default {
   components: {
     'anagram-game-start': AnagramGameStart,
     'top-trumps-game-start': TopTrumpsGameStart,
-    'character-list': CharacterList,
     'character-detail': CharacterDetail,
     'ireland-map': IrelandMap,
+    'nav-bar': NavBar
     
     
     
@@ -164,6 +165,7 @@ export default {
 
     eventBus.$on('end-top-trumps-game', () => {
       this.endTopTrumpsGame()
+      this.$bvModal.hide('top-trumps-modal')
     })
 
     //this is an event bus from when the USER (not computer as this is not possible)
@@ -264,26 +266,15 @@ export default {
     }
     )
 
-    // resets all data and starts again
     eventBus.$on('play-again', () => {
-      this.playerOneDeck = [],
-      this.playerTwoDeck = [],
-      this.playerOneCurrentCard = {},
-      this.playerTwoCurrentCard = {},
-      this.playerOneStat = 0,
-      this.playerTwoStat= 0,
-      this.playTopTrumps= false,
-      this.userSelectedStat = false,
-      this.isGameOver= null,
-      this.currentStat= '',
-      this.userIsWinner= null,
-      this.isDraw= null,
-      this.currentPlayer ='one',
-      this.computerSelectedStat= '',
-      this.winner= ''
+      this.endTopTrumpsGame()
       this.playTopTrumpsGame()
 
     })
+
+    // $("top-trumps-modal").on("hidden.bs.modal", function () {
+    //     console.log('Modal closed');
+    //   });
 
   },
   methods: {
@@ -305,38 +296,23 @@ export default {
       this.playAnagram = true
       this.randomNumber = this.getRandomInt(this.characters)
       this.randomCharacter = this.characters[this.randomNumber]
-      if (this.randomCharacter.name) {
-        // this tests if the random character name has any spaces in it
-        if (/\s/.test(this.randomCharacter.name)) {
-          //the name is then split into an array of separate words depending on the spaces
-          let words = this.splitStringIntoWords(this.randomCharacter.name)
-          //for every word in 'words' array the letters are shuffled using shuffleword()
-          //and saved as array shuffledNameMultiple
-          let shuffledNameMultiple = words.map(word => this.shuffleWord(word))
-          //the items in the array are then joined together with spaces between them 
-          this.currentAnagram = shuffledNameMultiple.join(' ')
-          //sets the current answer as the random characters name
-          this.currentAnswer = this.randomCharacter.name
-          }
-        else {
-          let shuffledNameSingle = this.shuffleWord(this.randomCharacter.name)
-          this.currentAnagram = shuffledNameSingle
-          this.currentAnswer = this.randomCharacter.name
+      if (/\s/.test(this.randomCharacter.name)) {
+        //the name is then split into an array of separate words depending on the spaces
+        let words = this.splitStringIntoWords(this.randomCharacter.name)
+        //for every word in 'words' array the letters are shuffled using shuffleword()
+        //and saved as array shuffledNameMultiple
+        let shuffledNameMultiple = words.map(word => this.shuffleWord(word))
+        //the items in the array are then joined together with spaces between them 
+        this.currentAnagram = shuffledNameMultiple.join(' ')
+        //sets the current answer as the random characters name
+        this.currentAnswer = this.randomCharacter.name
         }
-      }
       else {
-        if (/\s/.test(this.randomCharacter.species)) {
-          let words = this.splitStringIntoWords(this.randomCharacter.species)
-          let shuffledSpeciesMultiple = words.map(word => this.shuffleWord(word))
-          this.currentAnagram = shuffledSpeciesMultiple.join(' ')
-          this.currentAnswer = this.randomCharacter.species
-          }
-        else {
-          let shuffledSpeciesSingle = this.shuffleWord(this.randomCharacter.species)
-          this.currentAnagram = shuffledSpeciesSingle
-          this.currentAnswer = this.randomCharacter.species
-        }
+        let shuffledNameSingle = this.shuffleWord(this.randomCharacter.name)
+        this.currentAnagram = shuffledNameSingle
+        this.currentAnswer = this.randomCharacter.name
       }
+      
     },
     getRandomInt(array){
       let number = Math.floor(Math.random() * Math.floor(array.length))
@@ -344,7 +320,7 @@ export default {
     },
     //string with spaces is split into an array of separate words depending on the spaces 
     splitStringIntoWords(string) {
-      let arrayOfWords = string.toLowerCase().split(" ")
+      let arrayOfWords = string.split(" ")
       return arrayOfWords
     },
 
@@ -409,6 +385,7 @@ export default {
     },
 
     playTopTrumpsGame(){
+      this.endTopTrumpsGame()
       this.shuffleArray(this.charactersToShuffle)
       this.splitDeck(this.charactersToShuffle)
       this.playTopTrumps = true

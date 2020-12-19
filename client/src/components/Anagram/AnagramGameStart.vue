@@ -1,9 +1,6 @@
 <template> 
 
 <div>
-  <button v-on:click="playAnagramGame()">Play Anagram Game</button>
-  
-
 <b-modal class="modal" id="anagram-modal"
         :min-height="200"
         :scrollable="true"

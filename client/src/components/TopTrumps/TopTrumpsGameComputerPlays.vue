@@ -1,6 +1,10 @@
 <template>
   <div class='top-trumps-game'>
-      <div class="player-one">
+
+    <b-container>
+    <b-row>
+        <b-col>
+        <div class="player-one">
           <p><img class="image" :src="playerOneCurrentCard.image"></p>
             <p>{{playerOneCurrentCard.name}}</p>
             <ul>
@@ -8,10 +12,13 @@
                     <button>{{name}}</button>
                     <span>{{property}}</span>
                 </li>
-          </ul>
+            </ul>
             <player-one-cards 
             :playerOneDeck="playerOneDeck" />
         </div>
+        </b-col>
+
+        <b-col>
         <div id="player-two"> 
             <player-two-stats-computer 
             :playerTwoCurrentCard="playerTwoCurrentCard" 
@@ -20,7 +27,13 @@
 
             <player-two-cards 
             :playerTwoDeck="playerTwoDeck"/>
+        </div>
+        </b-col>
+    </b-row>
+    </b-container>
+        
 
+    <div>
             <top-trumps-against-computer-results v-if="currentPlayer==='two'" 
             :currentPlayer="currentPlayer" 
             :computerSelectedStat="computerSelectedStat" 
@@ -31,10 +44,7 @@
             :isGameOver="isGameOver"
             :winner="winner"
             />
-
-
-        
-        </div>
+    </div>
 
   </div>
 </template>

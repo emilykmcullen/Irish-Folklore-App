@@ -1,13 +1,7 @@
 <template>
   <div>
-    <button v-on:click="playTopTrumpsGame()">Play Top Trumps Game</button>
-
     <b-modal id="top-trumps-modal" class="modal"
-        :min-height="200"
-        :scrollable="true"
-        :reset="true"
-        width="40%"
-        height="auto">
+        size="lg">
     
     
     <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
