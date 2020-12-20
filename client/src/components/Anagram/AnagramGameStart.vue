@@ -2,11 +2,8 @@
 
 <div>
 <b-modal class="modal" id="anagram-modal"
-        :min-height="200"
-        :scrollable="true"
-        :reset="true"
-        width="40%"
-        height="auto">
+        title="Anagram:"
+        hide-footer="true">
     
     <anagram-game v-if="playAnagram" 
     :currentAnagram="currentAnagram"

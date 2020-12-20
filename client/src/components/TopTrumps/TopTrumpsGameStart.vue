@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-modal id="top-trumps-modal" class="modal"
-        size="lg">
+        title="Top Trumps"
+        size="lg"
+        hide-footer="true">
     
     
     <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
