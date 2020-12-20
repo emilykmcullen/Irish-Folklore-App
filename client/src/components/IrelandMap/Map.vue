@@ -138,4 +138,11 @@ export default {
 
 <style>
 
+/* #us-map {
+    height: 800px; 
+    min-width: 800px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+} */
+
 </style>

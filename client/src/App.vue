@@ -40,14 +40,16 @@
 
 
   <!-- map components -->
-  <map-two/>
-  <ireland-map></ireland-map>
+  <map-of-ireland/>
+  <!-- <map-two/> -->
+  <!-- <ireland-map></ireland-map> -->
 
 </div>
   
 </template>
 
 <script>
+import MapOfIreland from './components/IrelandMap/MapOfIreland'
 import MapTwo from './components/IrelandMap/Map'
 import NavBar from './components/NavBar'
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
@@ -102,7 +104,8 @@ export default {
     'character-detail': CharacterDetail,
     'ireland-map': IrelandMap,
     'nav-bar': NavBar,
-    'map-two': MapTwo
+    'map-two': MapTwo,
+    'map-of-ireland': MapOfIreland
     
     
     
