@@ -64,10 +64,10 @@ export default {
             allAreas: false,
             data: [
                 ['ie-5551', 0],
-                ['ie-1510', 1],
+                ['ie-1510', 2],
                 ['ie-mo', 2],
                 ['ie-ky', 3],
-                ['ie-dl', 4],
+                ['ie-dl', 1],
                 ['ie-491', 5],
                 ['ie-ce', 6],
                 ['ie-7034', 7],

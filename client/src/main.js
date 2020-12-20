@@ -3,6 +3,7 @@ import App from './App.vue';
 import HighCharts from 'highcharts';
 import Maps from 'highcharts/modules/map';
 import HighchartsVue from 'highcharts-vue';
+import patternFill from 'highcharts/modules/pattern-fill.js'
 import VModal from 'vue-js-modal';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -10,6 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Maps(HighCharts);
 Vue.use(HighchartsVue);
+patternFill(HighCharts)
 
 Vue.use(VModal)
 

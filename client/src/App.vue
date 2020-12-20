@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <h2>Mythical Creatures and Characters of Irish Folklore</h2>
+  <h2 id="header">Mythical Creatures and Characters of Irish Folklore</h2>
 
   <nav-bar :characters="characters"></nav-bar>
 
@@ -40,6 +40,7 @@
 
 
   <!-- map components -->
+  <map-two/>
   <ireland-map></ireland-map>
 
 </div>
@@ -47,6 +48,7 @@
 </template>
 
 <script>
+import MapTwo from './components/IrelandMap/Map'
 import NavBar from './components/NavBar'
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
 import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
@@ -99,7 +101,8 @@ export default {
     'top-trumps-game-start': TopTrumpsGameStart,
     'character-detail': CharacterDetail,
     'ireland-map': IrelandMap,
-    'nav-bar': NavBar
+    'nav-bar': NavBar,
+    'map-two': MapTwo
     
     
     
@@ -463,5 +466,9 @@ export default {
 </script>
 
 <style>
+#header{
+  text-align: center;
+  padding: 25px 15px 5px;
 
+}
 </style>

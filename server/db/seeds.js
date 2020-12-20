@@ -188,7 +188,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "4",
-        name: "The Pursuit of Diarmuid and Gráinne",
+        name: "Diarmuid and Gráinne",
         description: ["Grainne was the most beautiful woman in Ireland and the daughter of the High King of Ireland. Grainne was courted by Ireland's most eligible, Princes and Chieftains, including the now ageing chief Fionn MacCool, who wanted the young maid as his second wife. He asked her to marry him, she agreed and a great feast was set up to celebrate the newly engaged couple.", "But on that night Grainne met Diarmuid, one of Fionn's best warriors and it was love at first sight! Grainne was prepared to go to any lengths to get her man and drugged the entire party, apart from Diarmuid. With Diarmuid all to herself, Grainne confessed her love for him, but Diarmuid backed off, as he was loyal to his leader Fionn. But Grainne wasn't taking no for an answer, so she put a spell on him and he fell in love with her.", "The two ran off together, hotly pursued by a very angry Fionn and his men.  All across Ireland the eloping couple ran and all across Ireland there are caves, trees and all kinds of nooks and crannies, under or inside of which, local legend has it that Diarmuid and Grainne, lay together and hid.", "After long years on the run, Grainne fell pregnant with Diarmuid's child, but fate was about to catch up with them. One day out in the wilderness, with Fionn and his men closing in, Diarmuid and Grainne came across the heath of Benbulben in Co. Sligo, where a giant boar confronted them.", "This was bad news for Diarmuid, whom legend had told that the only living creature that could harm him, was a wild boar. As the boar charged, Diarmuid, protecting his heavily pregnant lover, wrestled it to the gound in a fight to the death. The warrior killed the boar with his sword, but not before the boar had gored Diarmuid, fatally wounding him.", "As Fionn and his men came upon their long sought quarry, he found Diarmuid dying in a heavily pregnant Grainne's arms. A despairing Grainne knew she had just one chance to save her lover. She implored Fionn to show mercy and save his former friend by curing Diarmuid with a drink of water cupped by his magical hands.", "But Fionn refused, still hurt that his best friend had eloped with his betrothed. With Diarmuid dying, Fionn's men begged him to help this once great warrior to live. But still Fionn refused. It was only when Fionn's son Oisin challenged his father and threatened to kill him that Fionn agreed to help Diarmuid. But it was too late, before Fionn had got the water, Diarmuid had died."],
         image: "https://www.ringsfromireland.com/uploads/images/Blog/2014/10/Diarmuid%20and%20Grainne.jpg",
         is_favourite: false,
@@ -227,7 +227,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "7",
-        name: "The Legend of the Giant's Causeway",
+        name: "Legend of the Giant's Causeway",
         description: ["As legend has it, Northern Ireland was once home to a giant named Finn McCool (also called Fionn Mac Cumhaill). When another giant – Benandonner, across the Irish Sea in Scotland – threatened Ireland, Finn retaliated by tearing up great chunks of the Antrim coastline and hurling them into the sea."],
         image: "https://i.pinimg.com/originals/f5/9f/67/f59f67d827d5e24570ea6240c623e707.jpg",
         is_favourite: false,

@@ -1,22 +1,27 @@
 <template>
 <div id="nav-bar">
-    <b-button-toolbar aria-label="Toolbar with button groups and dropdown menu">
-    
-      <b-form v-on:submit.prevent>
+    <b-container class="nav-container" fluid="md">
+    <b-row align-h="start" >
+        <b-col class="d-flex justify-content-end nav-button" >
+        <b-form v-on:submit.prevent>
           <b-form-select v-on:change="handleSelect" v-model="selectedCharacter" class="select-form" id="character-select">
               <b-form-select-option selected disabled :value="null">Select a character</b-form-select-option>
               <b-form-select-option v-for="character in characters" :value="character" :key="character._id">
                   <b-form-select-option v-if="character.name">{{character.name}}</b-form-select-option>
               </b-form-select-option>
           </b-form-select>
-      </b-form>
+        </b-form>
+        </b-col>
 
-        <b-button-group class="mx-1">
+        <b-col class="d-flex justify-content-center nav-button">
             <b-button v-on:click="playAnagramGame()">Play Anagram Game</b-button>
+        </b-col>
+        <b-col class="nav-button">
             <b-button v-on:click="playTopTrumpsGame()">Play Top Trumps Game</b-button>
-        </b-button-group>
+        </b-col>
 
-    </b-button-toolbar>
+    </b-row>
+    </b-container>
 
     
 
@@ -45,11 +50,20 @@ export default {
         },
         playTopTrumpsGame(){
             eventBus.$emit('play-top-trumps-game')
-        },
+        }
     }
 }
 </script>
 
 <style>
+
+.nav-button {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container {
+    padding: 15px;
+}
 
 </style>
