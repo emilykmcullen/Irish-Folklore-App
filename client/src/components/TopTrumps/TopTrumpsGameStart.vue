@@ -3,7 +3,7 @@
     <b-modal id="top-trumps-modal" class="modal"
         title="Top Trumps"
         size="lg"
-        hide-footer="true">
+        :hide-footer="true">
     
     
     <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 

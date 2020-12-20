@@ -1,13 +1,16 @@
 <template>
   <div id="anagram-game">
       <p>Anagram:</p>
-      <p>{{currentAnagram}}</p>
-      <form v-on:submit.prevent="answerAnagram">
+      <h2>{{currentAnagram}}</h2>
+      
+      <b-form v-on:submit.prevent="answerAnagram" class="form-container">
+         <b-row>
           <label for="answer"></label>
-          <input type="text" id="answer" v-model="answer">
-          <input type="submit" value="enter" id="answer">
-      </form>
-      <button v-on:click="showAnswer(currentAnswer)">Show Answer</button>
+          <b-col cols="9" class="d-flex justify-content-center"><b-form-input type="text" id="answer" v-model="answer"></b-form-input></b-col>
+          <b-col class="d-flex justify-content-center"><b-button type="submit" id="answer">Enter</b-button></b-col>
+          </b-row>
+      </b-form>
+      
       
 
       <anagram-results v-if="isCorrect !== null" 
@@ -41,9 +44,6 @@ export default {
         answerAnagram(){
             eventBus.$emit('anagram-answered', this.answer)
             this.answer = ''
-        },
-        showAnswer(answer){
-            eventBus.$emit('answer-show', answer)
         }
     }
     
@@ -52,5 +52,9 @@ export default {
 </script>
 
 <style>
+
+.form-container{
+    padding: 50px
+}
 
 </style>

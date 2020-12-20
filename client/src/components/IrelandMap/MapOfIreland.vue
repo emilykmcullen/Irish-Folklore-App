@@ -15,12 +15,16 @@ export default {
     data() {
         return {
             selectedId: '',
+            styledMode: true,
         chartOptions: {
             chart: {
             map: ireland
             },
             title: {
-            text: 'Map of Ireland'
+            text: 'Map of Ireland',
+            style: {
+                
+            }
             },
         // Add zoom/pan
         mapNavigation: {
@@ -117,7 +121,7 @@ export default {
             },
             states: {
             hover: {
-                borderColor: '#25A539',
+                borderColor: '#166222',
                 borderWidth: 2
             }
             }
@@ -141,6 +145,12 @@ export default {
     height: 800px; 
     min-width: 800px; 
     max-width: 800px; 
-    margin: 0 auto; 
+    margin: 0 auto;
+    font-family: 'Oxygen'; 
 }
+
+.highcharts-title {
+    font-family: 'Oxygen';
+}
+
 </style>

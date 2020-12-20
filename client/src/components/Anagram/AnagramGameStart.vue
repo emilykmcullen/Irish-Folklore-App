@@ -3,7 +3,9 @@
 <div>
 <b-modal class="modal" id="anagram-modal"
         title="Anagram:"
-        hide-footer="true">
+        :hide-footer="true"
+        :hide-header="true"
+        >
     
     <anagram-game v-if="playAnagram" 
     :currentAnagram="currentAnagram"
@@ -12,9 +14,13 @@
     :userAnswer="userAnswer"
     :answerToShow="answerToShow"
     />
-
-    <button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</button>
-    <button v-if="playAnagram" v-on:click="endAnagramGame()">End game</button>
+    
+    <b-row>
+    <b-col><b-button v-on:click="showAnswer(currentAnswer)">Show Answer</b-button></b-col>
+    <b-col><b-button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</b-button></b-col>
+    <b-col><b-button v-if="playAnagram" v-on:click="endAnagramGame()">End game</b-button></b-col>
+    </b-row>
+    
 </b-modal>
 </div>
 
@@ -39,6 +45,9 @@ export default {
         },
         endAnagramGame(){
             eventBus.$emit('end-anagram-game')
+        },
+        showAnswer(answer){
+            eventBus.$emit('answer-show', answer)
         }
     }
 

@@ -1,10 +1,8 @@
 <template>
 <b-modal class="modal" id="character-detail-modal"
-        :min-height="200"
-        :scrollable="true"
-        :reset="true"
-        width="40%"
-        height="auto">
+        :hide-footer="true"
+        :hide-header="true"
+        >
 
         
   <div v-if="character" id="character-detail">
@@ -41,6 +39,15 @@ export default {
 
 <style>
 .image {
-    height: 100px;
+    height: 200px;
 }
+
+#character-description{
+    font-family: 'Oxygen', sans-serif;
+}
+
+.modal{
+    text-align: center;
+}
+
 </style>

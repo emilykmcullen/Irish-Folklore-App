@@ -122,6 +122,11 @@ export default {
       this.$bvModal.show('character-detail-modal')
     })
 
+    eventBus.$on('close-character-modal', () => {
+      this.selectedCharacter = null
+      this.$bvModal.hide('character-detail-modal')
+    })
+
     eventBus.$on('update-description-page', (direction) => {
       if (direction === 'next') {
         this.currentDescriptionPage++;
@@ -472,6 +477,12 @@ export default {
 #header{
   text-align: center;
   padding: 25px 15px 5px;
+  font-family: 'Vollkorn', sans-serif;
 
 }
+
+/* #app{
+  font-family: 'Vollkorn', cursive;
+  font-weight: 700;
+} */
 </style>

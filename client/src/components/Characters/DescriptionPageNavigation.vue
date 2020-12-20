@@ -1,12 +1,10 @@
 <template>
-<div>
-    <div id="next">
-        <button v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</button>
-    </div>
-    <div id="previous">
-        <button v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</button>
-
-    </div>
+<div id="b-buttons">
+    <b-row>
+        <b-col><b-button v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</b-button></b-col>
+        <b-col><b-button v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</b-button></b-col>
+        <b-col><b-button v-on:click="closeCharacterModal()">Close</b-button></b-col>
+    </b-row>
 </div>
   
 </template>
@@ -20,6 +18,9 @@ export default {
     methods: {
         updateDescriptionPage(direction) {
             eventBus.$emit('update-description-page', direction)
+        },
+        closeCharacterModal(){
+            eventBus.$emit('close-character-modal')
         }
     }
 
@@ -27,5 +28,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>
