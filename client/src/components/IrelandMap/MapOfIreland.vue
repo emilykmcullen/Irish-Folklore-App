@@ -22,9 +22,9 @@ export default {
             title: {
             text: 'Map of Ireland'
             },
-            subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/Flags_of_the_U.S._states_and_territories">Wikipedia</a>'
-        },
+        //     subtitle: {
+        //     text: 'Source..'
+        // },
         // chart: {
         //     height: 500,
         // },
@@ -140,15 +140,15 @@ export default {
 
 <style>
 
-#container {
+/* #container {
     padding: 40px;
 
-}
+} */
 
-/* #map-of-ireland {
+#map-of-ireland {
     height: 800px; 
     min-width: 800px; 
     max-width: 800px; 
     margin: 0 auto; 
-} */
+}
 </style>
