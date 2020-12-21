@@ -4,7 +4,7 @@
           <p>{{playerTwoCurrentCard.name}}</p>
           <ul>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <button>{{name}}</button>
+                    <b-button class="stat-name">{{name}}</b-button>
                     <span>{{property}}</span>
                 </li>
           </ul>
@@ -25,5 +25,15 @@ export default {
 </script>
 
 <style>
+ul {
+    list-style: none;
+}
 
+.stat-name {
+    text-transform: capitalize;
+}
+
+button {
+    margin: 5px;
+}
 </style>

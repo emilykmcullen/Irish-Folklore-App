@@ -14,5 +14,8 @@ export default {
 </script>
 
 <style>
+#show-answer{
+    padding: 15px;
+}
 
 </style>

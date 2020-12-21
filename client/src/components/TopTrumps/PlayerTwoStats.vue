@@ -7,13 +7,13 @@
           <p>{{playerTwoCurrentCard.name}}</p>
           <ul v-if="userSelectedStat">
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <button>{{name}}</button>
+                    <b-button class="stat-name">{{name}}</b-button>
                     <span>{{property}}</span>
                 </li>
           </ul>
           <ul v-else>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <button>{{name}}</button>
+                    <b-button class="stat-name">{{name}}</b-button>
                     <span>???</span>
                 </li>
           </ul>
@@ -30,5 +30,18 @@ export default {
 </script>
 
 <style>
+
+ul {
+    list-style: none;
+}
+
+button {
+    margin: 5px;
+}
+
+.stat-name {
+    text-transform: capitalize;
+}
+
 
 </style>

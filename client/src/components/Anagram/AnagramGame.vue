@@ -54,7 +54,7 @@ export default {
 <style>
 
 .form-container{
-    padding: 50px
+    padding: 40px
 }
 
 </style>

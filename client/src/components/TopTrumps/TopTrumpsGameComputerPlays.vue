@@ -4,22 +4,22 @@
     <b-container>
     <b-row>
         <b-col>
-        <div class="player-one">
+        <b-card class="player-one">
           <p><img class="image" :src="playerOneCurrentCard.image"></p>
             <p>{{playerOneCurrentCard.name}}</p>
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name" >
-                    <button>{{name}}</button>
+                    <b-button class="stat-name">{{name}}</b-button>
                     <span>{{property}}</span>
                 </li>
             </ul>
             <player-one-cards 
             :playerOneDeck="playerOneDeck" />
-        </div>
+        </b-card>
         </b-col>
 
         <b-col>
-        <div id="player-two"> 
+        <b-card id="player-two"> 
             <player-two-stats-computer 
             :playerTwoCurrentCard="playerTwoCurrentCard" 
             :playerOneCurrentCard="playerOneCurrentCard" 
@@ -27,7 +27,7 @@
 
             <player-two-cards 
             :playerTwoDeck="playerTwoDeck"/>
-        </div>
+        </b-card>
         </b-col>
     </b-row>
     </b-container>
@@ -70,5 +70,17 @@ export default {
 </script>
 
 <style>
+ul {
+    list-style: none;
+}
+
+button {
+    margin: 5px;
+}
+
+.stat-name {
+    text-transform: capitalize;
+}
+
 
 </style>
