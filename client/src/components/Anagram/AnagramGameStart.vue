@@ -13,11 +13,11 @@
     :answerToShow="answerToShow"
     />
     
-    <b-row>
-    <b-col><b-button v-on:click="showAnswer(currentAnswer)">Show Answer</b-button></b-col>
-    <b-col><b-button v-if="playAnagram" v-on:click="playAnagramGame()">Play again</b-button></b-col>
-    <!-- <b-col><b-button v-if="playAnagram" v-on:click="endAnagramGame()">End game</b-button></b-col> -->
-    </b-row>
+    <b-button-group>
+    <b-button variant="outline-dark" v-on:click="showAnswer(currentAnswer)">Show Answer</b-button>
+    <b-button variant="outline-dark" v-if="playAnagram" v-on:click="playAnagramGame()">Play again</b-button>
+    </b-button-group>
+    
     
 </b-modal>
 </div>

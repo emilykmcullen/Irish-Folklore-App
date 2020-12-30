@@ -1,13 +1,13 @@
 <template>
   <div id="anagram-game">
-      <p>Anagram:</p>
+      <p id="anagram-title">Anagram:</p>
       <h2>{{currentAnagram}}</h2>
       
       <b-form v-on:submit.prevent="answerAnagram" class="form-container">
          <b-row>
           <label for="answer"></label>
           <b-col cols="9" class="d-flex justify-content-center"><b-form-input type="text" id="answer" v-model="answer" required></b-form-input></b-col>
-          <b-col class="d-flex justify-content-center"><b-button type="submit" id="answer">Enter</b-button></b-col>
+          <b-col class="d-flex justify-content-center"><b-button variant="primary" type="submit" id="answer">Enter</b-button></b-col>
           </b-row>
       </b-form>
       
@@ -55,6 +55,10 @@ export default {
 
 .form-container{
     padding: 40px
+}
+
+p#anagram-title {
+    font-family: 'Oxygen', sans-serif;
 }
 
 </style>

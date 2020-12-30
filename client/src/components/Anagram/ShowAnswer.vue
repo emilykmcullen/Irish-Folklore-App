@@ -1,6 +1,6 @@
 <template>
 <div id="show-answer">
-    The answer is {{answerToShow}}
+    The answer is "{{answerToShow}}"
 
 </div>
   
