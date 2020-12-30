@@ -2,10 +2,11 @@
   <div>
     <b-modal id="top-trumps-modal" class="modal"
         size="lg"
+        title="TopTrumps"
         :hide-footer="true"
         >
     
-    <h2>Top Trumps</h2>
+    
     
     <top-trumps-game v-if="playTopTrumps && currentPlayer==='one'" 
     :currentPlayer="currentPlayer"
@@ -68,5 +69,35 @@ export default {
 </script>
 
 <style>
+
+#top-trumps-modal___BV_modal_header_.modal-header{
+    text-align: center;
+}
+
+.modal-header{
+    justify-content: center;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+h3 {
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+h4 {
+    font-family: 'Press Start 2P', sans-serif;
+}
+h5 {
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+p {
+    font-family: 'Press Start 2P', sans-serif;
+}
 
 </style>

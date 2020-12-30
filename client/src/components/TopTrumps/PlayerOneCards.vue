@@ -1,6 +1,6 @@
 <template>
-  <div id="player-one-cards">
-      Cards: {{playerOneDeck.length}}
+  <div class="player-one-cards">
+      <p class="player-one-cards">Cards: {{playerOneDeck.length}}</p>
   </div>
 </template>
 
@@ -13,5 +13,9 @@ export default {
 </script>
 
 <style>
+
+.player-one-cards{
+  margin-bottom: 0px;
+}
 
 </style>

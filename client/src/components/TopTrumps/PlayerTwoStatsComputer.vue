@@ -5,8 +5,9 @@
           <b-card class="player-two-stats">
           <ul>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <button class="stat-name">{{name}}</button>
+                    <p class="stat-name-player-two">{{name}}
                     <span>{{property}}</span>
+                    </p>
                 </li>
           </ul>
           </b-card>

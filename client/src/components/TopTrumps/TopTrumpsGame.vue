@@ -7,14 +7,14 @@
         <div id=player-one-card>
         <b-card class="player-one"
             >
-            <h3>Player</h3>
+            <h5>Player</h5>
             <p><img class="image" :src="playerOneCurrentCard.image"></p>
             <h4>{{playerOneCurrentCard.name}}</h4>
         <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name">
                     
-                    <button class="stat-name" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</button>
+                    <button class="stat-name-player-one" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</button>
                     <span>{{property}}</span>
                     
                 </li>
@@ -42,6 +42,8 @@
         </b-col>
           </b-row>
         </b-container>
+
+        <p v-if="!userSelectedStat">Your turn!</p>
 
         <div>
             <top-trumps-results v-if="playerOneStat && playerTwoStat && currentPlayer ==='one'" 
@@ -94,55 +96,97 @@ export default {
 
 <style>
 
+.modal-header {
+    margin: 0 auto;
+}
+
 .image {
     /* max-width: 300px; */
     max-height: 150px;
     
 }
 
-ul {
-    list-style: none;
-}
-
 li {
     margin: 5px;
 }
 
-.stat-name {
-    text-transform: capitalize;
-}
+
 
 .card-body{
-    background-color: #7EBD5B ;
     border-radius: 20px;
 }
 
 
 
 .player-one.card{
-    border: none;
+    border: solid;
+    border-radius: 20px;
+    border-color: green;
+    background-color: #7EBD5B ;
 }
 
 .player-two.card{
-    border: none;
+    border: solid;
+    border-radius: 20px;
+    border-color: green;
+    background-color: #7EBD5B ;
 }
 
 .player-one-stats.card{
     border: solid;
+    border-color: green;
     border-radius: 20px;
+    background-color: #a5ee7d ;
+    margin-bottom: 10px;
+    
 
 }
 
 .player-two-stats.card{
     border: solid;
+    border-color: green;
     border-radius: 20px;
+    background-color: #a5ee7d ;
+    margin-bottom: 10px;
 
 }
 
-.stat-name {
+.stat-name-player-one {
+    text-transform: capitalize;
     border-radius: 10px;
     margin-right: 10px;
+    margin-bottom: 3px;;
+    font-family: 'Press Start 2P', sans-serif;
+    background-color: green;
+    color: #a5ee7d;
+    border-style:solid;
+    border-color: green;
+
+    
 }
 
+.stat-name-player-one:hover {
+    opacity: 0.8;
+}
+
+.stat-name-player-two {
+    color: green;
+    text-transform: capitalize;
+}
+
+.play-next-round{
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;;
+    font-family: 'Press Start 2P', sans-serif;
+    background-color: #a5ee7d;
+    color: green;
+    border-style:solid;
+    border-color: green;
+}
+
+.play-next-round:hover{
+    opacity: 0.8;
+}
 
 </style>

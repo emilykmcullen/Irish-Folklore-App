@@ -1,6 +1,6 @@
 <template>
- <div id="player-two-cards">
-      Cards: {{playerTwoDeck.length}}
+ <div class="player-two-cards">
+      <p class="player-two-cards">Cards: {{playerTwoDeck.length}}</p>
   </div>
   
 </template>
@@ -14,5 +14,9 @@ export default {
 </script>
 
 <style>
+
+.player-two-cards{
+    margin-bottom: 0px;
+}
 
 </style>

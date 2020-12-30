@@ -10,7 +10,7 @@
         <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name" >
-                    <button class="stat-name">{{name}}</button>
+                    <button class="stat-name-player-one">{{name}}</button>
                     <span>{{property}}</span>
                 </li>
             </ul>
