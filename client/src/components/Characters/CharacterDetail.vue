@@ -1,7 +1,7 @@
 <template>
 <b-modal class="modal" id="character-detail-modal"
         :hide-footer="true"
-        :hide-header="true"
+        
         >
 
         

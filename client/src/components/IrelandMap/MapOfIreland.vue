@@ -121,7 +121,7 @@ export default {
             },
             states: {
             hover: {
-                borderColor: '#166222',
+                borderColor: '#7EBD5B',
                 borderWidth: 2
             }
             }

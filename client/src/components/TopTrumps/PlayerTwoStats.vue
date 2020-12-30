@@ -2,21 +2,23 @@
 <div>
 
   <!-- this file is so that the computer stats are shown as ??? before the user chooses a stat, then the computers stats are revealed after -->
-
-  <p><img class="image" :src="playerTwoCurrentCard.image"></p>
-          <p>{{playerTwoCurrentCard.name}}</p>
+    <h3>Opponent</h3>
+    <p><img class="image" :src="playerTwoCurrentCard.image"></p>
+          <h4>{{playerTwoCurrentCard.name}}</h4>
+          <b-card class="player-two-stats">
           <ul v-if="userSelectedStat">
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <b-button class="stat-name">{{name}}</b-button>
+                    <button class="stat-name">{{name}}</button>
                     <span>{{property}}</span>
                 </li>
           </ul>
           <ul v-else>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <b-button class="stat-name">{{name}}</b-button>
+                    <button class="stat-name">{{name}}</button>
                     <span>???</span>
                 </li>
           </ul>
+          </b-card>
 
   </div>
 </template>

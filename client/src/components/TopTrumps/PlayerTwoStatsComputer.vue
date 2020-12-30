@@ -1,13 +1,15 @@
 <template>
   <div>
       <p><img class="image" :src="playerTwoCurrentCard.image"></p>
-          <p>{{playerTwoCurrentCard.name}}</p>
+          <h4>{{playerTwoCurrentCard.name}}</h4>
+          <b-card class="player-two-stats">
           <ul>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
-                    <b-button class="stat-name">{{name}}</b-button>
+                    <button class="stat-name">{{name}}</button>
                     <span>{{property}}</span>
                 </li>
           </ul>
+          </b-card>
           
        
 

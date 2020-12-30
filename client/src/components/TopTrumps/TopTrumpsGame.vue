@@ -7,17 +7,20 @@
         <div id=player-one-card>
         <b-card class="player-one"
             >
-            
+            <h3>Player</h3>
             <p><img class="image" :src="playerOneCurrentCard.image"></p>
-            <p>{{playerOneCurrentCard.name}}</p>
+            <h4>{{playerOneCurrentCard.name}}</h4>
+        <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name">
                     
-                    <b-button class="stat-name" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</b-button>
+                    <button class="stat-name" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</button>
                     <span>{{property}}</span>
                     
                 </li>
             </ul>
+        </b-card>
+        
             <player-one-cards 
             :playerOneDeck="playerOneDeck" />
     
@@ -26,7 +29,7 @@
         </div>
         </b-col>
         <b-col>
-        <b-card id="player-two"> 
+        <b-card class="player-two"> 
             <player-two-stats 
             :playerTwoCurrentCard="playerTwoCurrentCard" 
             :userSelectedStat="userSelectedStat" />
@@ -91,6 +94,12 @@ export default {
 
 <style>
 
+.image {
+    /* max-width: 300px; */
+    max-height: 150px;
+    
+}
+
 ul {
     list-style: none;
 }
@@ -104,7 +113,36 @@ li {
 }
 
 .card-body{
-    background-color: yellow;
+    background-color: #7EBD5B ;
+    border-radius: 20px;
 }
+
+
+
+.player-one.card{
+    border: none;
+}
+
+.player-two.card{
+    border: none;
+}
+
+.player-one-stats.card{
+    border: solid;
+    border-radius: 20px;
+
+}
+
+.player-two-stats.card{
+    border: solid;
+    border-radius: 20px;
+
+}
+
+.stat-name {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
 
 </style>

@@ -1,10 +1,9 @@
 <template>
   <div>
     <b-modal id="top-trumps-modal" class="modal"
-        title="Top Trumps"
         size="lg"
         :hide-footer="true"
-        :hide-header="true">
+        >
     
     <h2>Top Trumps</h2>
     
@@ -36,7 +35,7 @@
     :winner="winner"
     />
     
-    <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame()">End Game</button>
+    <!-- <button v-if="playTopTrumps" v-on:click="endTopTrumpsGame()">End Game</button> -->
     
     </b-modal>
   </div>
@@ -60,9 +59,9 @@ export default {
         playTopTrumpsGame(){
             eventBus.$emit('play-top-trumps-game')
         },
-        endTopTrumpsGame(){
-            eventBus.$emit('end-top-trumps-game')
-        }
+        // endTopTrumpsGame(){
+        //     eventBus.$emit('end-top-trumps-game')
+        // }
     }
 
 }

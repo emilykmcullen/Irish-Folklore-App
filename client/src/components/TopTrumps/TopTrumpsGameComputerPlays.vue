@@ -6,20 +6,22 @@
         <b-col>
         <b-card class="player-one">
           <p><img class="image" :src="playerOneCurrentCard.image"></p>
-            <p>{{playerOneCurrentCard.name}}</p>
+            <h4>{{playerOneCurrentCard.name}}</h4>
+        <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name" >
-                    <b-button class="stat-name">{{name}}</b-button>
+                    <button class="stat-name">{{name}}</button>
                     <span>{{property}}</span>
                 </li>
             </ul>
+        </b-card>
             <player-one-cards 
             :playerOneDeck="playerOneDeck" />
         </b-card>
         </b-col>
 
         <b-col>
-        <b-card id="player-two"> 
+        <b-card class="player-two"> 
             <player-two-stats-computer 
             :playerTwoCurrentCard="playerTwoCurrentCard" 
             :playerOneCurrentCard="playerOneCurrentCard" 

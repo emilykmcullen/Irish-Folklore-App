@@ -122,10 +122,10 @@ export default {
       this.$bvModal.show('character-detail-modal')
     })
 
-    eventBus.$on('close-character-modal', () => {
-      this.selectedCharacter = null
-      this.$bvModal.hide('character-detail-modal')
-    })
+    // eventBus.$on('close-character-modal', () => {
+    //   this.selectedCharacter = null
+    //   this.$bvModal.hide('character-detail-modal')
+    // })
 
     eventBus.$on('update-description-page', (direction) => {
       if (direction === 'next') {
@@ -137,14 +137,15 @@ export default {
       })
 
     eventBus.$on('play-anagram', () => {
+      this.endAnagramGame()
       this.playAnagramGame()
       this.$bvModal.show('anagram-modal')
     })
 
-    eventBus.$on('end-anagram-game', () => {
-      this.endAnagramGame()
-      this.$bvModal.hide('anagram-modal')
-    })
+    // eventBus.$on('end-anagram-game', () => {
+    //   this.endAnagramGame()
+    //   this.$bvModal.hide('anagram-modal')
+    // })
 
     eventBus.$on('anagram-answered', (answer) => {
       this.userAnswer = answer
@@ -174,10 +175,10 @@ export default {
       this.$bvModal.show('top-trumps-modal')
     })
 
-    eventBus.$on('end-top-trumps-game', () => {
-      this.endTopTrumpsGame()
-      this.$bvModal.hide('top-trumps-modal')
-    })
+    // eventBus.$on('end-top-trumps-game', () => {
+    //   this.endTopTrumpsGame()
+    //   this.$bvModal.hide('top-trumps-modal')
+    // })
 
     //this is an event bus from when the USER (not computer as this is not possible)
     // selects a stat, it evaluates win/lose/draw and removes/adds cards to decks
