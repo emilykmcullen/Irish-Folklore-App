@@ -4,7 +4,7 @@
   <!-- this file is so that the computer stats are shown as ??? before the user chooses a stat, then the computers stats are revealed after -->
     <h5>Opponent</h5>
     <p><img class="image" :src="playerTwoCurrentCard.image"></p>
-          <h4>{{playerTwoCurrentCard.name}}</h4>
+          <h5>{{playerTwoCurrentCard.name}}</h5>
           <b-card class="player-two-stats">
           <ul v-if="userSelectedStat">
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
@@ -43,7 +43,7 @@ button {
     margin: 5px;
 }
 
-.stat-name {
+.stat-name-player-two {
     text-transform: capitalize;
 }
 

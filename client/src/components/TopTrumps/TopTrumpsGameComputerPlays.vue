@@ -5,8 +5,9 @@
     <b-row>
         <b-col>
         <b-card class="player-one">
+        <h5>Player</h5>
           <p><img class="image" :src="playerOneCurrentCard.image"></p>
-            <h4>{{playerOneCurrentCard.name}}</h4>
+            <h5>{{playerOneCurrentCard.name}}</h5>
         <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name" >

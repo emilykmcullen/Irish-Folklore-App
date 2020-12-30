@@ -4,6 +4,7 @@
         size="lg"
         title="TopTrumps"
         :hide-footer="true"
+        ref="myTopTrumpsModal"
         >
     
     
@@ -94,6 +95,11 @@ h5 {
 
 p {
     font-family: 'Press Start 2P', sans-serif;
+}
+
+span {
+    font-family: 'Press Start 2P', sans-serif;
+
 }
 
 </style>

@@ -2,7 +2,7 @@
 <div id="b-buttons">
     
         <!-- <b-col><b-button v-on:click="closeCharacterModal()">Close</b-button></b-col> -->
-        <b-button-group>
+        <b-button-group id="character-button-group">
         <b-button variant="outline-success" v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</b-button>
         <b-button variant="success" v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</b-button>
         </b-button-group>
@@ -33,7 +33,11 @@ export default {
 
 p#page-number {
     font-family: 'Oxygen', sans-serif;
+    margin-bottom: 0;
 }
 
+#character-button-group {
+    margin: 10px;
+}
 
 </style>

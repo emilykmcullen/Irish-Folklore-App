@@ -1,5 +1,5 @@
 <template>
-<b-modal class="modal" id="character-detail-modal"
+<b-modal v-if="character" class="modal" id="character-detail-modal"
         :hide-footer="true"
         :title="character.name"
         >

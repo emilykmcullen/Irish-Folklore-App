@@ -1,7 +1,8 @@
 <template>
   <div>
+      <h5>Opponent</h5>
       <p><img class="image" :src="playerTwoCurrentCard.image"></p>
-          <h4>{{playerTwoCurrentCard.name}}</h4>
+          <h5>{{playerTwoCurrentCard.name}}</h5>
           <b-card class="player-two-stats">
           <ul>
                 <li v-for="(property, name) in playerTwoCurrentCard.top_trumps_properties" :key="name" >
@@ -32,7 +33,7 @@ ul {
     list-style: none;
 }
 
-.stat-name {
+.stat-name-player-two {
     text-transform: capitalize;
 }
 

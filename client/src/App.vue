@@ -50,11 +50,9 @@
 
 <script>
 import MapOfIreland from './components/IrelandMap/MapOfIreland'
-import MapTwo from './components/IrelandMap/Map'
 import NavBar from './components/NavBar'
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
 import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
-import IrelandMap from './components/IrelandMap/IrelandMap'
 import CharacterDetail from './components/Characters/CharacterDetail'
 import CharacterService from './services/CharacterService.js'
 import { eventBus } from './main.js'
@@ -102,9 +100,7 @@ export default {
     'anagram-game-start': AnagramGameStart,
     'top-trumps-game-start': TopTrumpsGameStart,
     'character-detail': CharacterDetail,
-    'ireland-map': IrelandMap,
     'nav-bar': NavBar,
-    'map-two': MapTwo,
     'map-of-ireland': MapOfIreland
     
     
@@ -122,11 +118,6 @@ export default {
       this.$bvModal.show('character-detail-modal')
     })
 
-    // eventBus.$on('close-character-modal', () => {
-    //   this.selectedCharacter = null
-    //   this.$bvModal.hide('character-detail-modal')
-    // })
-
     eventBus.$on('update-description-page', (direction) => {
       if (direction === 'next') {
         this.currentDescriptionPage++;
@@ -141,11 +132,6 @@ export default {
       this.playAnagramGame()
       this.$bvModal.show('anagram-modal')
     })
-
-    // eventBus.$on('end-anagram-game', () => {
-    //   this.endAnagramGame()
-    //   this.$bvModal.hide('anagram-modal')
-    // })
 
     eventBus.$on('anagram-answered', (answer) => {
       this.userAnswer = answer
@@ -174,11 +160,6 @@ export default {
       this.playTopTrumpsGame()
       this.$bvModal.show('top-trumps-modal')
     })
-
-    // eventBus.$on('end-top-trumps-game', () => {
-    //   this.endTopTrumpsGame()
-    //   this.$bvModal.hide('top-trumps-modal')
-    // })
 
     //this is an event bus from when the USER (not computer as this is not possible)
     // selects a stat, it evaluates win/lose/draw and removes/adds cards to decks
@@ -482,8 +463,4 @@ export default {
 
 }
 
-/* #app{
-  font-family: 'Vollkorn', cursive;
-  font-weight: 700;
-} */
 </style>

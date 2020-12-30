@@ -9,12 +9,15 @@
             >
             <h5>Player</h5>
             <p><img class="image" :src="playerOneCurrentCard.image"></p>
-            <h4>{{playerOneCurrentCard.name}}</h4>
+            <h5>{{playerOneCurrentCard.name}}</h5>
         <b-card class="player-one-stats">
             <ul>
                 <li v-for="(property, name) in playerOneCurrentCard.top_trumps_properties" :key="name">
                     
-                    <button class="stat-name-player-one" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</button>
+                    <button 
+                    v-scroll-to="{el: '.top-trumps-results',
+                    container: '#top-trumps-modal'}"
+                    class="stat-name-player-one" :disabled="isDisabled" v-on:click="playerChoice(property, name)">{{name}}</button>
                     <span>{{property}}</span>
                     
                 </li>
@@ -43,7 +46,7 @@
           </b-row>
         </b-container>
 
-        <p v-if="!userSelectedStat">Your turn!</p>
+        <p id="your-turn" v-if="!userSelectedStat">Your turn!</p>
 
         <div>
             <top-trumps-results v-if="playerOneStat && playerTwoStat && currentPlayer ==='one'" 
@@ -110,6 +113,10 @@ li {
     margin: 5px;
 }
 
+p#your-turn {
+    margin-top:15px;
+}
+
 
 
 .card-body{
@@ -169,9 +176,12 @@ li {
     opacity: 0.8;
 }
 
-.stat-name-player-two {
-    color: green;
-    text-transform: capitalize;
+.stat-name-player-one:hover {
+    opacity: 0.8;
+}
+
+.stat-name-player-one:disabled {
+    opacity: 1;
 }
 
 .play-next-round{

@@ -1,12 +1,12 @@
 <template>
-<div id="top-trumps-results">
+<div class="top-trumps-results">
     <div>
         <p> You chose '{{currentStat}}' </p>
         <p> Your stat: {{playerOneStat}}</p>
         <p> Opponent stat: {{playerTwoStat}}</p>
         <p class="you-win" v-if="userIsWinner">You win! You take your opponent's card and put it to the bottom of your deck.</p>
         <p class="you-lose" v-if="userIsWinner===false">You lose! Your opponent takes your card.</p>
-        <p v-if="isDraw">It's a draw! You both put your cards to the bottom of your deck.</p>
+        <p class="you-draw" v-if="isDraw">It's a draw! You both put your cards to the bottom of your deck.</p>
     </div>
     <button class="play-next-round" :disabled="isDisabled" v-on:click="playNextCard(userIsWinner, isDraw)">Play next round</button>
 
@@ -39,7 +39,6 @@ export default {
             return this.isGameOver===true 
         }
     }
-
 }
 </script>
 
@@ -51,6 +50,10 @@ export default {
 
 .you-win {
     color: green;
+}
+
+.you-draw {
+    color: rgb(216, 148, 1);
 }
 
 </style>
