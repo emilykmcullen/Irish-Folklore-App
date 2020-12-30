@@ -3,9 +3,10 @@
     
         <!-- <b-col><b-button v-on:click="closeCharacterModal()">Close</b-button></b-col> -->
         <b-button-group>
-        <b-button v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</b-button>
-        <b-button v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</b-button>
+        <b-button variant="outline-success" v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</b-button>
+        <b-button variant="success" v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</b-button>
         </b-button-group>
+        <p v-if="character.description.length>1" id="page-number">Page {{currentDescriptionPage + 1}}/{{character.description.length}}</p>
 </div>
   
 </template>
@@ -30,6 +31,9 @@ export default {
 
 <style>
 
+p#page-number {
+    font-family: 'Oxygen', sans-serif;
+}
 
 
 </style>

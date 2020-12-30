@@ -85,10 +85,6 @@ ul {
 }
 
 
-h3 {
-    font-family: 'Press Start 2P', sans-serif;
-}
-
 h4 {
     font-family: 'Press Start 2P', sans-serif;
 }
