@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import PlayerTwoStatsComputer from './PlayerTwoStatsComputer.vue'
-import PlayerOneCards from './PlayerOneCards.vue'
-import PlayerTwoCards from './PlayerTwoCards.vue'
-import TopTrumpsAgainstComputerResults from './TopTrumpsAgainstComputerResults'
+import PlayerTwoStatsComputer from '../Stats/PlayerTwoStatsComputer.vue'
+import PlayerOneCards from '../CardCounts/PlayerOneCards'
+import PlayerTwoCards from '../CardCounts/PlayerTwoCards'
+import TopTrumpsAgainstComputerResults from '../Results/AgainstComputerResults'
 
 export default {
     name: 'top-trumps-game-computer-plays',

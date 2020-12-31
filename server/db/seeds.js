@@ -52,7 +52,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345253",
-        name: "The Banshee",
+        name: "Banshee",
         irish: "Bean Sí ",
         description: ["As legend tells it, the banshee would scream when a member of a certain family died, often alerting the family members. If one heard the shriek, they knew one of their family members had passed on. The banshee is said to appear most often as old women in rags but they can also appear as a beautiful young woman, a weasel, a hare, a hooded crow and more."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Banshee.jpg",
@@ -82,7 +82,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345251",
-        name: "The Children of Lir",
+        name: "Children of Lir",
         irish: "Oidheadh chloinne Lir",
         description: ["The Children of Lir tells the story of four siblings, three boys and one girl. Their mother died but they still had the love and praise of their father, Lir. Lir remarried a woman named Aoife who quickly grew jealous of the kids and began to plot their murder.", "Lacking the courage to take their lives, Aoife decided to turn the children into swans for 900 years so she could have their loving father all to herself. Lir eventually found out and turned Aoife into an air demon for eternity."],
         image:"https://ireland-map-pictures.s3.us-east-2.amazonaws.com/ChildrenofLir.jpg",
@@ -122,7 +122,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345250",
-        name: "The Pooka",
+        name: "Pooka",
         irish: "púca",
         description: ["They are one of the most feared mythical beings in Ireland. These are little goblins that usually dress up and go out at night to terrorise people. They always wear a long, wild mane and their eyes are sulphurous. Depending on the area, the pooka can become large furry ogres, huge eagles or black goats with twisted horns. In Downland, in particular, they turn into small, deformed goblins that demand a portion of the harvest from the peasants."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Pooka.jpg",
@@ -162,7 +162,7 @@ db.characters.insertMany([
     },
     {   
         // region_key: "2345255",
-        name: "The Dullahan",
+        name: "Dullahan",
         description: ["Through the Irish countryside rode sinister creatures, with their heads in their lap at high speed. They were called Dullahan, and it is said that they lived in the counties of Down and Sligo. Legend has it that when a Dullahan suddenly stopped, someone from the environment died."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Dullahan.jpg",
         is_favourite: false,
@@ -201,7 +201,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "5",
-        name: "The Morrigan",
+        name: "Morrigan",
         description: ["She was a shape-shifter and frequently appeared as a black crow, an ominous sign for those who saw her prior to battle. The most famous tales of the Morrigan always center around Cuchulainn at the time he defended Ulster from the army of Connaught, led by Queen Maeve. This famous battle raged for months and cost countless lives.", "By invoking the right of single combat Cuchulainn was able to defeat warrior after warrior. It is at this point that the Morrigan attempted to seduce Cuchulainn, offering herself to him before battle. But Cuchulainn refused Morrigan, despite her great beauty. The Morrigan was outraged and used her shape-shifting powers to transform into an eel, tripping Cuchulainn as he traversed a fjord.", "The hero recovered though and lashed out at the eel, breaking its ribs. She then transformed into a wolf, scaring cattle and driving them towards Cuchulainn who responded with a sling-shot, blinding the Morrigan in one eye. Once again the Morrigan transformed! This time she changed into a heifer leading the stampede towards Cuchulainn. But once again the famed prowess of the greatest mythic figure in Irish history thwarted her evil ambition.", "He fired away another slingshot, breaking her leg forcing the Morrigan into a humbling retreat. One that she would never forget. After his victory in battle Cuchulainn traveled from the battle-site where he encountered an old woman milking a cow. Again the Morrigan had transformed.", "The haggard woman was blind in one eye, with damaged ribs and a broken leg but despite having inflicted these wounds Cuchulainn did not recognize her new form. She tricked him by giving him three sips of milk.", "He blessed her on every occasion and when each had been taken the wounds inflicted on the Morrigan were healed. By Cuchulainn's own blessings! The Morrigan would again appear before Cuchulainn shortly before his death.", "On his way to yet another battle he met a woman washing bloody armor, a sure and terrible portent of impending doom. Sure enough Cuchulainn was finally conquered. Despite being mortally wounded he tied himself to a boulder with his own innards, in the hope that his upright appearance would continue to terrify his enemies.", "It is only when a black crow finally landed on his shoulder that his death was finally revealed."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Morrgian.jpg",
         is_favourite: false,
@@ -227,7 +227,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "7",
-        name: "Legend of the Giant's Causeway",
+        name: "Giant's Causeway",
         description: ["As legend has it, Northern Ireland was once home to a giant named Finn McCool (also called Fionn Mac Cumhaill). When another giant – Benandonner, across the Irish Sea in Scotland – threatened Ireland, Finn retaliated by tearing up great chunks of the Antrim coastline and hurling them into the sea."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/GiantsCauseway.jpg",
         is_favourite: false,
@@ -253,7 +253,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345265",
-        name: "The Death of Cú Chulainn",
+        name: "Death of Cú Chulainn",
         description: ["Cuchulainn, mortally wounded, had only enough strength in him to crawl to a nearby lake for a drink of water. ... Cuchulainn laughed, and died with the laugh in his mouth. For three days after he died, he stood tied to the rock, and none of his enemies were brave enough to approach, and make sure he was dead."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/DeathofCuChullain.jpg",
         is_favourite: false,
@@ -305,7 +305,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345249",
-        name: "The Lord of Lust, Gan Ceanach",
+        name: "Lord of Lust, Gan Ceanach",
         description: ["There are many types of fairy in Ireland, some more risky than others, and some to be avoided due to their habits rather than out of any particular malevolence. Such a one is the Gan Ceanach, whose name means “Without Love”.", "Although you might think such a title would indicate a friendless creature of a lonely nature lacking in social graces of poor prospects and uncertain personal hygiene, nothing could be further from the truth! The Gan Ceanach is the Casanova of the Sidhe, a breaker of hearts and infamous libertine.", "In truth he is, like many Sidhe, diminutive in stature although well groomed at all times and dressed in the latest fashions, although he can take the shape of any man he pleases, and can set a lady's heart a-flutter with murmured sweet nothings in his deep husky voice, like rich velvet."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/LordofLust.jpg",
         is_favourite: false,
@@ -318,7 +318,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345274",
-        name: "The Legend of Niamh and Oisin",
+        name: "Niamh and Oisin",
         description: ["As Oisin sat by the shore one day he was noticed from across the sea by Niamh Chinn Óir, Niamh of the golden Hair, fairy queen of Tir na n'Og, She thought him to be the most handsome man she had ever seen and wanted him to be her lover. She rode across the sea on her white horse and stopped and spoke to Oisin.", "She told him of her wonderful land, where no one ages or is ill, there is no hunger or war, the weather is always warm, flowers always bloom and everyone is happy. Niamh asked him to go with her to Tir na n'Og and live with her. By morning he had decided to go with Niamh and they rode off across the waves to Tir na n'Og.", "Life there was idyllic, just as Niamh had told him, they married and had two sons and a daughter. Three hundred mortal years had passed unbeknown to Oisin, to whom it seemed just a few in this enchanted land, but he yearned to see his old friends with the Fianna.", "He told Niamh and asked if it would be possible to return for a visit, She explained how the time was different there and that everyone he knew would be long gone, but Oisin was determined to see for himself and reluctantly Niamh sent him off on the white horse, with the instructions to stay on the horse no matter what, or he would be unable to return to Tir na n'Og.", "So, off he set across the waves and landed near the Hill of Allen, but nothing looked familiar, the forests were gone and the hill overgrown, he knew then that Niamh was right and sadly he turned to ride back to her.", "On his way, he came across a group of men trying to raise a stone, he asked them where he could find Finn and the Fianna and they told him that these were just stories told by their grandfathers with no truth in them. This saddened Oisin but he was much stronger than the men and offered to help them lift the stone, as he reached down to do so, he fell from the horse and instantly all the lost years caught up with him and he aged instantly.", "The men could not believe what they saw and sent for St Patrick."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/NiamandOisin.jpg",
         is_favourite: false,
@@ -344,7 +344,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345258",
-        name: "The Cattle Raid of Cooley",
+        name: "Cattle Raid of Cooley",
         description: ["The story begins with Queen Medb and an argument with her husband over who was wealthier. Each had their servants pile up their riches in two piles side-by-side. It became immediately evident that the one thing Medb’s husband had that she didn’t was a champion bull.", "Medb knew of only one bull in Ireland that would help her pip her husband. That very day she sent a servant to meet the owner and offer him great riches in exchange for a loan of the bull. He was about to agree when he overheard one of Medb’s servants state that they’d have stolen the bull if the man turned them down. He was infuriated and he denied Medb’s request.", "Medb was enraged and a battle began. However, this was no ordinary battle, oh no – on one side, there was Medb and hundreds of men. On the other, there was a young boy named Cu Chulainn."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/CattleRaid.jpg",
         is_favourite: false,
@@ -370,7 +370,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345270",
-        name: "The Rock of the Candle",
+        name: "Rock of the Candle",
         description: ["Close by where Limerick city stands today lie the ruins of an ancient and once mighty fortress called Carrigogunnel, which commanded all the lands about with a stern hand. It was known then as a place of ill omen, and it is known today as the same, for it was once the home of an uncanny hag by the name of Gráinne.", "Amid the surrounding marshes and binding briar she dwelt on her rock, enormous in size and frightful of countenance, with greenish skin and long hooked fingers ending in iron talons, a nose as bent as a blackthorn tree and almost as long, hair like pond weeds hanging lank and bristles upon her chin. Most unsavoury of all were her black and glistening eyes, for it was said they could see times to come and help her hatch schemes to cause misery.", "There wasn't much this old hag loved, but what she did love above all other things was to cause death untimely. She had in her hovel a candle she had made from the whispered lies of spiders and midnight oozings, a twisted thing of woven hair from a drowned banshee and rushes from a ditch over which a Pooka had leaped three times, set in the misty breath of old fairy mounds on Samhain night cupped in the skull of a man betrayed by his kin.", "She didn't think it hard work or any difficulty at all to put that candle atop her rock every night when she knew someone was coming along the road below, and should they chance to glance up and see her candle, death would come for them before the morning sun rose!"],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/RockCandle.jpg",
         is_favourite: false,
@@ -383,7 +383,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345261",
-        name: "The Hostel of the Quicken Trees",
+        name: "Hostel of the Quicken Trees",
         description: ["Bruidhean Chaorthainn (“Fairy Palace of the Quicken Trees” or “Hostel of the Rowan Trees”) was a common tale in Irish myth, where the hero is trapped in a fairy palace or hostel, and another hero has to free them through various adventures."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Quickentrees.jpg",
         is_favourite: false,
@@ -396,7 +396,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "9",
-        name: "The Hunt of Slieve Cuilinn",
+        name: "Hunt of Slieve Cuilinn",
         description: ["In the tale known as The Hunt of Slieve Gullion, Áine and her sister Milucra both seek after the legendary hero Fionn mac Cumhaill (Finn McCool). Knowing that Áine vowed never to marry a man with grey hair, Milucra secretly puts a spell on the lake atop Slieve Gullion, so that anyone who swam in it would become elderly.", "She tricks Fionn by asking him to fetch her golden ring from the lake, and he emerges as an old man with grey-white hair. His men, the Fianna, force her to give him a restorative potion from her cornucopia. Fionn's youth returns, but his hair does not return to its true colour."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/Slieve.jpg",
         is_favourite: false,
@@ -435,7 +435,7 @@ db.characters.insertMany([
     },
     {   
         region_key: "2345259",
-        name: "The Madness of Suibhne",
+        name: "Madness of Suibhne",
         description: ["The Madness of Suibhne or Suibhne's Frenzy) is an old Irish tale about the Suibhne mac Colmáin, king of the Dál nAraidi, driven insane by the curse of Saint Rónán Finn. The insanity makes Suibhne leave the Battle of Mag Rath, enter a life of wandering (which earns him the nickname Suibne Geilt or 'Suibhne the Madman'), until he dies under the refuge of St. Moling."],
         image: "https://ireland-map-pictures.s3.us-east-2.amazonaws.com/MadnessofSuibhne.jpg",
         is_favourite: false,

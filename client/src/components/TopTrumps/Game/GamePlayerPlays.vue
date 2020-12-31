@@ -65,12 +65,12 @@
 </template>
 
 <script>
-import {eventBus} from '../../main.js'
+import {eventBus} from '../../../main.js'
 
-import TopTrumpsResults from './TopTrumpsResults'
-import PlayerOneCards  from './PlayerOneCards.vue'
-import PlayerTwoCards from './PlayerTwoCards.vue'
-import PlayerTwoStats from './PlayerTwoStats.vue'
+import TopTrumpsResults from '../Results/Results'
+import PlayerOneCards  from '../CardCounts/PlayerOneCards'
+import PlayerTwoCards from '../CardCounts/PlayerTwoCards'
+import PlayerTwoStats from '../Stats/PlayerTwoStats'
 
 export default {
     name: 'top-trumps-game',

@@ -6,7 +6,6 @@
 
 <script>
 
-// import pattern from 'highcharts/modules/pattern-fill.js'
 import ireland from './ie-all.geo.json'
 import { eventBus } from '../../main.js'
 
@@ -135,11 +134,6 @@ export default {
 </script>
 
 <style>
-
-/* #container {
-    padding: 40px;
-
-} */
 
 #map-of-ireland {
     height: 800px; 

@@ -41,9 +41,6 @@ export default {
         playAnagramGame(){
             eventBus.$emit('play-anagram')
         },
-        // endAnagramGame(){
-        //     eventBus.$emit('end-anagram-game')
-        // },
         showAnswer(answer){
             eventBus.$emit('answer-show', answer)
         }

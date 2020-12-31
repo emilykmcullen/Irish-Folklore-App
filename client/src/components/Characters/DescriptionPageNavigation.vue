@@ -1,7 +1,5 @@
 <template>
 <div id="b-buttons">
-    
-        <!-- <b-col><b-button v-on:click="closeCharacterModal()">Close</b-button></b-col> -->
         <b-button-group id="character-button-group">
         <b-button variant="outline-success" v-if="currentDescriptionPage > 0" v-on:click="updateDescriptionPage('previous')">Previous</b-button>
         <b-button variant="success" v-if="currentDescriptionPage < character.description.length -1 " v-on:click="updateDescriptionPage('next')">Next</b-button>
@@ -20,10 +18,7 @@ export default {
     methods: {
         updateDescriptionPage(direction) {
             eventBus.$emit('update-description-page', direction)
-        },
-        // closeCharacterModal(){
-        //     eventBus.$emit('close-character-modal')
-        // }
+        }
     }
 
 }

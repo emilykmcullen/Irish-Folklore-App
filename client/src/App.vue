@@ -38,11 +38,8 @@
 
   />
 
-
-  <!-- map components -->
   <map-of-ireland/>
-  <!-- <map-two/> -->
-  <!-- <ireland-map></ireland-map> -->
+
 
 </div>
   
@@ -52,7 +49,7 @@
 import MapOfIreland from './components/IrelandMap/MapOfIreland'
 import NavBar from './components/NavBar'
 import AnagramGameStart from './components/Anagram/AnagramGameStart'
-import TopTrumpsGameStart from './components/TopTrumps/TopTrumpsGameStart'
+import TopTrumpsGameStart from './components/TopTrumps/StartGame/StartGame'
 import CharacterDetail from './components/Characters/CharacterDetail'
 import CharacterService from './services/CharacterService.js'
 import { eventBus } from './main.js'
@@ -85,7 +82,6 @@ export default {
       playerTwoStat: 0,
       playTopTrumps: false,
       userSelectedStat: false,
-      // once user has selected a stat this updates to true and the opponent's stats are shown
       isGameOver: null,
       currentStat: '',
       userIsWinner: null,
@@ -103,8 +99,6 @@ export default {
     'character-detail': CharacterDetail,
     'nav-bar': NavBar,
     'map-of-ireland': MapOfIreland
-    
-    
     
   },
   mounted() {
@@ -265,10 +259,6 @@ export default {
       this.playTopTrumpsGame()
 
     })
-
-    // $("top-trumps-modal").on("hidden.bs.modal", function () {
-    //     console.log('Modal closed');
-    //   });
 
   },
   methods: {

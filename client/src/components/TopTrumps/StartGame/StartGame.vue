@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import { eventBus } from '../../main.js'
-import TopTrumpsGame from './TopTrumpsGame'
-import TopTrumpsGameComputerPlays from './TopTrumpsGameComputerPlays'
+import { eventBus } from '../../../main.js'
+import TopTrumpsGame from '../Game/GamePlayerPlays'
+import TopTrumpsGameComputerPlays from '../Game/GameComputerPlays'
 
 export default {
     name: 'top-trumps-game-start',

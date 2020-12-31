@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import {eventBus} from '../../main.js'
-import GameOver from './GameOver'
+import {eventBus} from '../../../main.js'
+import GameOver from '../GameOver/GameOver'
 
 export default {
     name: 'top-trumps-against-computer-results',
@@ -42,7 +42,24 @@ export default {
 </script>
 
 <style>
+.play-next-round{
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;;
+    font-family: 'Press Start 2P', sans-serif;
+    background-color: #a5ee7d;
+    color: green;
+    border-style:solid;
+    border-color: green;
+}
 
+.play-next-round:hover{
+    opacity: 0.8;
+}
+
+.play-next-round:disabled{
+    opacity: 1;
+}
 
 
 </style>
