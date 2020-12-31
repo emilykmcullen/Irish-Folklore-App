@@ -2,7 +2,7 @@
 <div id="app">
   <h2 id="header">Mythical Creatures and Characters of Irish Folklore</h2>
 
-  <nav-bar :characters="characters"></nav-bar>
+  <nav-bar :characters="alphabeticalCharacters"></nav-bar>
 
   <!-- components for drop down, selecting, showing characters  -->
   <character-detail :character="selectedCharacter" :currentDescriptionPage="currentDescriptionPage"></character-detail>
@@ -63,6 +63,7 @@ export default {
   data () {
     return {
       characters: [],
+      alphabeticalCharacters: [],
       charactersToShuffle: [],
       selectedCharacter: null,
       currentDescriptionPage: 0,
@@ -274,6 +275,11 @@ export default {
     fetchCharacters() {
       CharacterService.getCharacters()
       .then(characters => this.characters = characters)
+      .then(this.sortListOfObjectsAlphabeticallyByProperty)
+    },
+    sortListOfObjectsAlphabeticallyByProperty() {
+      this.alphabeticalCharacters = this.characters.sort((a, b) => (a.name > b.name) ? 1 : -1)
+      console.log(this.alphabeticalCharacters[0].name);
     },
     fetchCharactersToShuffle() {
       CharacterService.getCharacters()
